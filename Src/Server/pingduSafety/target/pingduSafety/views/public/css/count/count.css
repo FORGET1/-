@@ -1,0 +1,33 @@
+@CHARSET "UTF-8";
+
+
+.chart-row {
+	padding-left:5%;
+	padding-right:2%;
+}
+.chart-row .choose-row {
+	margin-top:1%;
+	margin-bottom: 1%;
+}
+.chart-row .choose-row div {
+	padding:0.5%;
+	border-style:solid;
+	border-radius:2px;
+	border-width:1px;
+	text-align:center;
+	cursor: pointer;
+	margin-left:0.2%;
+}
+.current-choose {
+	background-color:#3a3633;
+	color:white;
+}
+.p-i {
+	cursor: pointer;
+}
+
+.dept-user,.dept-row,.dept-info{
+	padding-left:0%;
+	padding-right:0%;
+}
+

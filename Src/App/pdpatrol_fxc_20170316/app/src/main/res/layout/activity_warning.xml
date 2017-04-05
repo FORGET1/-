@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_warning"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context="com.ssl.pdpatrol.warning.view.WarningActivity">
+
+    <include layout="@layout/actionbar_warning" />
+
+    <EditText
+        android:id="@+id/et_warning_title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/selector_et_warning_common"
+        android:hint="@string/warning_title_hint"
+        android:padding="8dp"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/et_warning_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="4"
+        android:background="@drawable/selector_et_warning_common"
+        android:gravity="top"
+        android:hint="@string/warning_content_hint"
+        android:padding="8dp"
+        android:textSize="20sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:background="#f0f0f0"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btn_warning_warning"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:background="@drawable/selector_btn_warning_warning" />
+
+    </LinearLayout>
+
+</LinearLayout>

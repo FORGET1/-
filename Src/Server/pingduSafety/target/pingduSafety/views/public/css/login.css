@@ -1,0 +1,13 @@
+@CHARSET "UTF-8";
+
+.form-div {
+	position:absolute;
+	left:40%;
+	top:20%;	
+}
+
+.btn {
+	margin-top:20px;
+	position: absolute;
+	left: 40%;
+}

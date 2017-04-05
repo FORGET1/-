@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>证照管理</title>
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_aaebiml8x5b138fr.css">
+    <link rel="stylesheet" href="../public/css/public.css">
+    <script src="../public/js/jquery-3.2.0.min.js"></script>
+<style>
+    .iframe-ct{
+        position: relative;
+        /*height: 830px;*/
+    }
+
+    .new-item{
+        background-color: lightseagreen;
+        color: white;
+        line-height: 46px;
+    }
+    .new-item input{
+        text-align: center;
+    }
+    .virtual-item{
+        opacity: 0;
+        line-height: 1px;
+    }
+</style>
+</head>
+<body>
+    <div class="iframe-ct">
+        <div class="title-bar">
+            <h3>证照类型管理</h3>
+            <span class="add-license-type">+添加证照类型</span>
+        </div>
+        <div class="license-type">
+            <table>
+                <thead>
+                    <tr>
+                        <td>序号</td>
+                        <td>企业类型</td>
+                        <td>证照名称</td>
+                        <td>有效期</td>
+                        <td>操作</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>加油站</td>
+                        <td>营业执照</td>
+                        <td>24个月</td>
+                        <td>
+                            <button class="revise-btn">修改</button>
+                            <button class="delete-btn">删除</button>
+                        </td>
+                    </tr>
+
+                    <!--<tr class="virtual-item">
+                        <td>+</td>
+                        <td>
+                            <select disabled="disabled" name="year" id="year">
+                                <option value="1">化工厂</option>
+                                <option value="1">加油站</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input disabled="disabled" type="text">
+                        </td>
+                        <td>
+                            <select disabled="disabled" name="year" id="year">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                            <label for="year">年零</label>
+                            <select  disabled="disabled" name="month" id="month">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                            </select>
+                            <label for="month">个月</label>
+                        </td>
+                        <td> 
+                            <button class="">取消</button>
+                            <button class="">添加</button>
+                        </td>
+                    </tr>-->
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                    </tr>
+                </tfoot>
+            </table>
+            <div class="table-button">
+                <button class="previous-page">上一页</button>
+                <span>1 / 2</span>
+                <button class="next-page">下一页</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    var $addLicenseType = $('.title-bar .add-license-type'),
+        $listTbody = $('.license-type>table>tbody'),
+        $pageNumberSpan = $('.table-button>.page-number'),
+        $previousPageBtn = $('.table-button .previous-page'),
+        $nextPageBtn = $('.table-button .next-page'),
+        
+        currentPage,
+        lastPage;
+    
+    getLicenseTypeList(1);
+    $addLicenseType.on('click',function(){
+        importNewItem();
+    })
+
+    $previousPageBtn.on('click',function(){
+        if(currentPage > 1 || lastPage >1){
+            getLicenseTypeList(currentPage-1);
+        }
+    })
+    $nextPageBtn.on('click',function(){
+        if(currentPage < lastPage){
+            getLicenseTypeList(currentPage+1); 
+        }
+    })
+
+    function getLicenseTypeList(page){
+        $.get('/getLicenseTypeList',{page:page,userID:1}).done(function(result){
+            console.log(result);
+            importList(result.license,'get');
+            currentPage = result.page;
+            lastPage = result.lastPage;
+            $pageNumberSpan.text(result.page + '/' + result.lastPage);
+        })
+    }
+
+    function importList(dataArr){
+        $listTbody.empty();
+        $(dataArr).each(function(i){
+            var $tr = $(
+                '<tr>'+
+                        '<td class = "number"></td>'+
+                        '<td><select name="enterprise-type" class="enterprise-type">'+
+                                '<option value="chemical-plant">化工厂</option>'+
+                                '<option value="GAS">加油站</option>'+
+                            '</select></td>'+
+                        '<td><input type="text" class="license-name"></td>'+
+                '<td><select name="year" class="year">'+
+                        '<option value="0">0</option>'+
+                        '<option value="1">1</option>'+
+                        '<option value="2">2</option>'+
+                        '<option value="3">3</option>'+
+                        '<option value="4">4</option>'+
+                        '<option value="5">5</option>'+
+                    '</select>'+
+                    '<label for="year">年</label>&nbsp'+
+                    '<select name="month" class="month">'+
+                        '<option value="0">0</option>'+
+                        '<option value="1">1</option>'+
+                        '<option value="2">2</option>'+
+                        '<option value="3">3</option>'+
+                        '<option value="4">4</option>'+
+                        '<option value="5">5</option>'+
+                        '<option value="6">6</option>'+
+                        '<option value="7">7</option>'+
+                        '<option value="8">8</option>'+
+                        '<option value="9">9</option>'+
+                        '<option value="10">10</option>'+
+                        '<option value="11">11</option>'+
+                    '</select>'+
+                    '<label for="month">个月</label></td>'+
+                        '<td><button class="left-btn">修改</button>'+
+                        '<button class="right-btn">删除</button></td></tr>'
+            );
+            $tr.find('.number').text(i+1);
+            $tr.find('.enterprise-type').val(dataArr[i].enterpriseType);
+            $tr.find('.license-name').val(dataArr[i].licenseName);
+            $tr.find('.year').val(dataArr[i].validperiod.year);
+            $tr.find('.month').val(dataArr[i].validperiod.month);
+
+
+            $tr.data('licenseTypeCode',dataArr[i].licenseCode);
+
+            $tr.data('enterpriseType',dataArr[i].enterpriseType);
+            $tr.data('licenseName',dataArr[i].licenseName);
+            $tr.data('year',dataArr[i].validperiod.year);
+            $tr.data('month',dataArr[i].validperiod.month);
+            $listTbody.append($tr);
+        })
+        bindBtns();
+        window.parent.adjustHeight();
+    }
+
+    function bindBtns(){
+
+        var $trs = $listTbody.children('tr:not(.new-item)'),
+            $input = $trs.find('input'),
+            $select = $trs.find('select'),
+            $leftBtn = $trs.find('.left-btn'),
+            $rightBtn = $trs.find('.right-btn');
+
+        $input.attr('disabled','disabled');
+        $input.css('cursor','not-allowed');
+        $select.attr('disabled','disabled');
+        $select.css('cursor','not-allowed');
+        $leftBtn.on('click',function(){
+            changeEdit($(this).parents('tr'));
+
+        })
+        $rightBtn.on('click',function(){
+            window.parent.showDialog('删除',function(){
+                console.log(1);
+            });
+        })
+
+
+    }
+
+    function changeEdit($tr){
+        $tr.css('background-color','deepskyblue');
+        $tr.find('input').removeAttr('disabled');
+        $tr.find('input').css('cursor','auto');
+        $tr.find('select').removeAttr('disabled');
+        $tr.find('select').css('cursor','auto');
+        var $leftBtn = $tr.find('.left-btn'),
+            $rightBtn = $tr.find('.right-btn');
+
+        $leftBtn.text('取消');
+        $leftBtn.off('click');
+        $leftBtn.on('click',function(){
+            changeRead($(this).parents('tr'));
+        })
+
+        $rightBtn.text('修改');
+        $rightBtn.addClass('blue-btn');
+        $rightBtn.off('click');
+        $rightBtn.on('click',function(){
+
+        })
+    }
+
+    function changeRead($tr){
+        $tr.css('background-color','transparent');
+        $tr.find('input').attr('disabled','disabled');
+        $tr.find('input').css('cursor','not-allowed');
+        $tr.find('select').attr('disabled','disabled');
+        $tr.find('select').css('cursor','not-allowed');
+        var $leftBtn = $tr.find('.left-btn'),
+            $rightBtn = $tr.find('.right-btn');
+        $leftBtn.text('修改');
+        $leftBtn.off('click');
+
+
+        $rightBtn.text('删除');
+        $rightBtn.removeClass('blue-btn');
+        $rightBtn.off('click');
+
+
+        $rightBtn.on('click',function(){
+            window.parent.showDialog('删除',function(){
+                console.log(1);
+            });
+        })
+        $leftBtn.on('click',function(){
+            changeEdit($(this).parents('tr'));
+        })
+        
+        $tr.find('.enterprise-type').val($tr.data('enterpriseType'));
+        $tr.find('.license-name').val($tr.data('licenseName'));
+        $tr.find('.year').val($tr.data('year'));
+        $tr.find('.month').val($tr.data('month'));
+
+    }
+
+    function importNewItem(){
+        $listTbody.find('.new-item').remove();
+        var $newItem = $(
+            '<tr class="new-item">'+
+                    '<td>+</td>'+
+                    '<td><select name="year" class="enterprise-type">'+
+                            '<option value="chemical-plant">化工厂</option>'+
+                            '<option value="GAS">加油站</option>'+
+                        '</select></td>'+
+                    '<td><input type="text" class="license-name"></td>'+
+            '<td><select name="year" class="year">'+
+                    '<option value="0">0</option>'+
+                    '<option value="1">1</option>'+
+                    '<option value="2">2</option>'+
+                    '<option value="3">3</option>'+
+                    '<option value="4">4</option>'+
+                    '<option value="5">5</option>'+
+                '</select>'+
+                '<label for="year">年</label>&nbsp'+
+                '<select name="month" class="month">'+
+                    '<option value="0">0</option>'+
+                    '<option value="1">1</option>'+
+                    '<option value="1">2</option>'+
+                    '<option value="1">3</option>'+
+                    '<option value="1">4</option>'+
+                    '<option value="1">5</option>'+
+                    '<option value="1">6</option>'+
+                    '<option value="1">7</option>'+
+                    '<option value="1">8</option>'+
+                    '<option value="1">9</option>'+
+                    '<option value="1">10</option>'+
+                    '<option value="1">11</option>'+
+                    '<option value="1">12</option>'+
+                '</select>'+
+                '<label for="month">个月</label></td>'+
+                    '<td><button class="cancel-btn">取消</button>'+
+                    '<button class="confirm-btn blue-btn">添加</button></td></tr>'
+        );
+
+        $newItem.find('.cancel-btn').on('click',function(){
+            $newItem.remove();
+        });
+        $newItem.find('.confirm-btn').on('click',function(){
+            $newItem.remove();
+        });
+        $listTbody.prepend($newItem);
+        window.parent.adjustHeight();
+    }
+</script>
+</html>

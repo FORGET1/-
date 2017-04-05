@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>创建新通告</title>
+    <link rel="stylesheet" href="../css/public.css">
+    <script src="../js/jquery-3.2.0.min.js"></script>
+<style>
+    textarea{
+        outline:0px;
+        border-radius: 6px;
+        border: 1px solid silver;
+    }
+    .iframe-ct .information{
+        width: 900px;
+        margin: 30px 0;
+        margin-left: 85px;
+    }
+    .iframe-ct .information>ul>li{
+        float: left;
+        margin-right: 30px;
+        margin-bottom: 20px;
+    }
+    .iframe-ct .information>ul>li>label{
+        margin-right: 10px;
+    }
+    .iframe-ct .information>.form-button{
+        text-align: center;
+        margin-left: -85px;
+    }
+    .iframe-ct .information>.form-button>button{
+        margin: 0 15px;
+    }
+
+</style>
+</head>
+<body>
+    <div class="iframe-ct">
+        <div class="title-bar">
+            <h3>创建新通告</h3>
+        </div>
+        <form action="" class="information clearfix">
+            <ul class="clearfix">
+                <li>
+                    <label for="message-name">标题</label>
+                    <input type="text" class="medium" id="message-name">
+                </li>
+                <li>
+                    <label for="message-type">通告类型</label>
+                    <select name="message-type" id="message-type" class="short">
+                        <option value="notice">通知</option>
+                        <option value="warning">警告</option>
+                        <option value="announcement">公告</option>
+                    </select>
+                </li>
+                <li>
+                    <label for="recipient">接收者</label>
+                    <select name="recipient" id="recipient" class="medium">
+                        <option value="office1">安监办</option>
+                        <option value="office2">企业</option>
+                    </select>
+                </li>
+                <li>
+                    <label for="message-content">通告内容</label>
+                    <br><br>
+                    <textarea name="message-content" id="message-content" cols="135" rows="20"></textarea>
+                </li>
+            </ul>
+            <div class="form-button">
+                <button class="">返回</button>
+                <button class="blue-btn">发送</button>
+            </div>
+        </form>
+    </div>
+    
+</body>
+</html>

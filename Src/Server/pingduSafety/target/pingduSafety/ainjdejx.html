@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>平度安监局</title>
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_aaebiml8x5b138fr.css">
+    <link rel="stylesheet" href="views/public/css/public.css">
+    <script src="views/public/js/jquery-3.2.0.min.js"></script>
+
+<style>
+    body,ul,li{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,PingFang SC,Source Han Sans CN,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif;
+        color: #333333;
+        font-size: 14px;
+    }
+    .clearfix:after{
+        content: "";
+        display: block;
+        clear: both;
+    }
+    .header{
+        width: 100%;
+        position: relative;
+        height: 120px;
+    }
+    .header .navbar{
+        width: 1000px;
+        margin: 0 auto;
+        padding-top: 40px;
+    }
+
+    .header .navbar>li{
+        height: 35px;
+        display: inline-block;
+        padding-right: 30px;
+        margin-right: 55px;
+        cursor: pointer;
+        position: relative;
+        /*transition: all 0.3s;*/
+    }
+    .header .navbar>li:last-child{
+        padding: 0;
+        margin: 0;
+    }
+    .header .navbar>li>.menu{
+        display: none;
+        position: absolute;
+        top: 35px;
+        left: -24px;
+        z-index: 6;
+        background-color: #333333;
+        color: white;
+        border-radius: 0 0 5px 5px;
+        opacity: 0.8;
+        transition: all 1s;
+    }
+    .header .navbar>li>.menu>li{
+        font-size: 12px;
+        color: white;
+        width: 100px;
+        text-align: center;
+        line-height: 31px;
+    }
+    .header .navbar>li>.menu>li:hover{
+        color: royalblue;
+    }
+    .header .navbar>li:hover .menu{
+        display: block;
+    }
+    .iconfont.icon-setting1{
+        font-size: 21px;
+    }
+    .header .navbar>li:hover{
+        color: royalblue;
+    }
+    .header .navbar img{
+        width: 60px;
+        height: 60px;
+    }
+    .content{
+        width: 100%;
+        height: 720px;
+        background-color: white;
+        position: relative;
+    }
+    .content .shadow{
+        width: 1000px;
+        height: 100%;
+        box-shadow: 0 0 300px silver;
+        z-index: -1;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        margin-left: -500px;
+    }
+    .footer{
+        width: 100%;
+        height: 120px;
+        text-align: center;
+        padding-top: 20px;
+        color: #808080;
+        font-size: 12px;
+    }
+    .iframe{
+        width: 1000px;
+        height: 100%;
+        margin: 0 auto;
+    }
+    #iframe{
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    .dialog-ct{
+        display: none;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.7);
+        position: fixed;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+    }
+    .dialog-ct>.dialog{
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        margin-left: -150px;
+        margin-top: -60px;
+        background-color: white;
+        border: 1px solid silver;
+        border-radius: 5px;
+        width: 300px;
+        height: 120px;
+    }
+    .dialog-ct>.dialog>.title-bar{
+        margin: 0;
+    }
+    .dialog-ct>.dialog>.dialog-btn{
+        margin-top: 30px;
+        text-align: center;
+    }
+    .dialog-ct>.dialog>.dialog-btn>button{
+        margin: 0 10px;
+    }
+    .table-button{
+        margin-bottom: 30px;
+    }
+</style>
+</head>
+<body>
+    <div class="header">
+        <ul class="navbar claerfix">
+            <li><img src="views/public/img/logo.png" alt=""></li>
+            <li class="nav-notice">
+                <span><i class="iconfont icon-message"></i></span>
+                <span>通知</span>
+            </li>
+            <li class="nav-file">
+                <span><i class="iconfont icon-file"></i></span>
+                <span>文件</span>
+            </li>
+            <li>
+                <span class="nav-company"><i class="iconfont icon-Factory"></i></span>
+                <span class="nav-company">企业</span>
+                <ul class="menu">
+                    <li class="nav-company">企业管理</li>
+                    <li class="nav-license">证照管理</li>
+                    <li class="nav-archive">档案管理</li>
+                    <li class="nav-commitment">安全承诺</li>
+                </ul>
+            </li>
+            <li>
+                <span class="nav-patrol"><i class="iconfont icon-examineicon"></i></span>
+                <span class="nav-patrol">巡检</span>
+                <ul class="menu">
+                    <li class="nav-patrol">巡检任务</li>
+                    <li class="nav-point">项点管理</li>
+                    <li class="nav-item">巡检条目</li>
+                </ul>
+            </li>
+            <li>
+                <span class="nav-department"><i class="iconfont icon-ic_organization"></i></span>
+                <span class="nav-department">组织</span>
+                <ul class="menu">
+                    <li class="nav-department">部门管理</li>
+                    <li class="nav-department-user">部门用户</li>
+                    <li class="nav-company-user">企业用户</li>
+                </ul>
+            </li>
+            <li>
+                <span><i class="iconfont icon-examineunpressed"></i></span>
+                <span class="nav-emergency-rescue">救援</span>
+            </li>
+            <li>
+                <span><i class="iconfont icon-setting1"></i></span>
+            </li>
+        </ul>
+    </div>
+    <div class="content">
+        <div class="iframe">
+            <iframe id="iframe" src="views/notice/getNoticeList.html" frameborder="0"></iframe>
+        </div>
+        <div class="shadow"></div>
+    </div>
+    <div class="footer">
+        <span>--&nbsp山东京友电子有限公司&nbsp--</span>
+    </div>
+    <div class="dialog-ct">
+        <div class="dialog">
+            <div class="title-bar">
+                <h3>删除</h3>
+            </div>
+            <div class="dialog-btn">
+                <button class="cancel-btn">取消</button>
+                <button class="confirm-btn blue-btn">删除</button>
+            </div>
+        </div>
+    </div>
+
+<script>
+    var $iframe = $('#iframe'),
+        $contentDiv = $('.content'),
+        $navNotice = $('.navbar .nav-notice'),
+        $navLicense = $('.navbar .nav-license'),
+        $navArchive = $('.navbar .nav-archive'),
+        $navCommitment = $('.nav-commitment'),
+        $navPatrol = $('.navbar .nav-patrol'),
+        $navPoint = $('.navbar .nav-point'),
+        $navItem = $('.navbar .nav-item'),
+        $navEmergencyRescue = $('.navbar .nav-emergency-rescue'),
+        $navDepartment = $('.navbar .nav-department'),
+        $navDepartmentUser = $('.navbar .nav-department-user'),
+        $navCompanyUser = $('.navbar .nav-company-user'),
+        $navCommitment = $('.navbar .nav-commitment'),
+        $navFile = $('.navbar .nav-file'),
+        $dialog = $('.dialog-ct'),
+        $dialogTitle = $('.dialog-ct .title-bar>h3'),
+        $dialogCancel = $('.dialog-ct .cancel-btn'),
+        $dialogConfirm = $('.dialog-ct .confirm-btn'),
+        $navCompany = $('.navbar .nav-company');
+
+    $navNotice.on('click',function(){
+        jump('views/notice/getNoticelist.html');
+    })
+    $navCompany.on('click',function(){
+        jump('views/company/getCompanyList.html');
+    })
+    $navFile.on('click',function(){
+        jump('views/file/getFileList.html');
+    })
+    $navLicense.on('click',function(){
+        jump('views/license/getLicenseList.html');
+    })
+    $navArchive.on('click',function(){
+        jump('views/archive/getArchiveList.html');
+    })
+    $navCommitment.on('click',function(){
+        jump('views/commitment/getCommitmentList.html');
+    })
+
+    $navPatrol.on('click',function(){
+        jump('views/patrolTask/getTaskList.html');
+    })
+    $navPoint.on('click',function(){
+        jump('views/point/getPointList.html');
+    })
+    $navItem.on('click',function(){
+        jump('views/item/getItemList.html');
+    })
+    $navDepartment.on('click',function(){
+        jump('views/department/getDepartmentList.html');
+    })
+    $navDepartmentUser.on('click',function(){
+        jump('views/user/getDeptUserList.html');
+    })
+    $navCompanyUser.on('click',function(){
+        jump('views/user/getCompUserList.html');
+    })
+    $navEmergencyRescue.on('click',function(){
+        jump('views/emergencyRescue/getEmeRescueList.html');
+    })
+
+    adjustHeight();
+    function adjustHeight(){
+        $iframe.on('load',function(){
+            var height = $iframe.contents().find('.iframe-ct').outerHeight();
+            console.log(height+1);
+            $contentDiv.css('height',height+'px');
+            return;
+        })
+            var height = $iframe.contents().find('.iframe-ct').outerHeight();
+            console.log(height);
+            $contentDiv.css('height',height+'px');
+    }
+    function jump(src){
+        $iframe.attr('src',src);
+        adjustHeight();
+    }
+
+
+    function dialogCallback(){};
+    function showDialog(command,callback){
+        $dialogTitle.text(command);
+        $dialogConfirm.text(command);
+        $dialog.show();
+        dialogCallback = callback;
+    }
+    $dialogCancel.on('click',function(){
+        $dialog.hide();
+    })
+    $dialogConfirm.on('click',function(){
+        $dialog.hide();
+        dialogCallback();
+    })
+
+</script>
+</body>
+</html>

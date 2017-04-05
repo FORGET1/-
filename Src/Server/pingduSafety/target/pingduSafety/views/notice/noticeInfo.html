@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>通知详情</title>
+    <link rel="stylesheet" href="../public/css/public.css">
+    <script src="../public/js/jquery-3.2.0.min.js"></script>
+<style>
+    .info{
+        width: 80%;
+        margin: 20px auto;
+        /*border: 1px solid black;*/
+    }
+    .info table{
+        width: 100%;
+    }
+    .info td{
+        text-align: left;
+        word-wrap:break-word;
+    }
+    .info h3{
+        display: inline-block;
+        font-size: 16px;
+        font-weight: 500;
+        margin-right: 10px;
+        width: 70px;
+    }
+    .info span{
+        display: inline-block;
+        padding: 0 30px;
+        background-color: #e6e6e6;
+        line-height: 30px;
+        border-radius: 5px;
+    }
+    .info .notice-content{
+        margin-left: 85px;
+        box-sizing: border-box;
+        width: 720px;
+        /*display: inline-block;*/
+        padding: 10px 30px;
+        background-color: #e6e6e6;
+        line-height: 30px;
+        border-radius: 5px;
+    }
+    .table-button{
+        margin-bottom: 30px;
+    }
+</style>
+</head>
+<body>
+    <div class="iframe-ct">
+        <div class="title-bar">
+            <h3>通知详情</h3>
+        </div>
+        <div class="info clearfix">
+            <table>
+                <tr>
+                    <td>
+                        <h3>标题</h3>
+                        <span class="notice-title">xxxxxxxxxxx号文件</span>
+                    </td>
+                    <td>
+                        <h3>类型</h3>
+                        <span class="notice-type">警告</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h3>发布时间</h3>
+                        <span class="notice-time">2016-10-10</span>
+                    </td>
+                    <td>
+                        <h3>发送人</h3>
+                        <span class="notice-sender">xxxxxxx安监办</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <h3>内容</h3>
+                        <br>
+                        <p class="notice-content">jdsafdsa;nvcm,xzkljadsfioepwjnjdsafdsa;nvcm,xzkljadsfioepwjnjdsafdsa;nvcm,xzkljadsfioepwjnjdsafdsa;nvcm,xzkljadsfioepwjnjdsafdsa;nvcm,xzkljadsfioepwjnjdsafdsa;nvcm,xzkljadsfioepwjnjdsafdsa;nvcm,xzklja</p>
+                    </td>
+                </tr>
+            </table>
+                <!--<ul>
+                    <li>
+
+                    </li>
+                    <li>
+                        <h3>类型</h3>
+                        <span>警告</span>
+                    </li>
+                    <li>
+                        <h3>发布时间</h3>
+                        <span>2016-10-10</span>
+                    </li>
+                    <li>
+                        <h3>发送人</h3>
+                        <span>xxxxxxx安监办</span>
+                    </li>
+                    <li>
+                        <h3>内容</h3>
+                        <br>
+                        <span>jdsafdsa;nvcm,xzkljadsfioepwjn</span>
+                    </li>
+                </ul>-->
+        </div>
+        <div class="title-bar">
+            <h3>接收人列表</h3>
+        </div>
+        <div class="receiver-list">
+            <table>
+                <thead>
+                    <tr>
+                        <td>序号</td>
+                        <td>接收人</td>
+                        <td>是否已读</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>xxxxxx</td>
+                        <td>是</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>xxxx</td>
+                        <td>是</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>xxxxxx</td>
+                        <td>否</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>xxxx</td>
+                        <td>否</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>xxxxxx</td>
+                        <td>否</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>xxxx</td>
+                        <td>否</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>xxxx</td>
+                        <td>否</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>xxxx</td>
+                        <td>否</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>xxxx</td>
+                        <td>否</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>xxxx</td>
+                        <td>否</td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>xxxx</td>
+                        <td>否</td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>xxxx</td>
+                        <td>否</td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>xxxx</td>
+                        <td>否</td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>xxxx</td>
+                        <td>否</td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td>xxxx</td>
+                        <td>否</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                    </tr>
+                </tfoot>
+            </table>
+            <div class="table-button">
+                <button class="previous-page">上一页</button>
+                <span>1 / 2</span>
+                <button class="next-page">下一页</button>
+            </div>
+        </div>
+    </div>
+
+
+<script>
+    var noticeCode = window.parent.jumpCommand,
+        $noticeTitle = $('.info .notice-title'),
+        $noticeType = $('.info .notice-type'),
+        $noticeTime = $('.info .notice-time'),
+        $noticeSender = $('.info .notice-sender'),
+        $noticeContent = $('.info .notice-content'),
+        $receiverList = $('.receiver-list tbody'),
+        $previousPage = $('.receiver-list .previous-page'),
+        $nextPage = $('.receiver-list .next-page'),
+        $pageIndicator = $('.receiver-list .table-button>span'),
+        currentPage,
+        lastPage;
+        
+    getNoticeInfo(noticeCode);
+    getReceiverList(noticeCode,1);
+
+    $previousPage.on('click',function(){
+        // event.stopPropagation();
+        // event.preventDefault()
+        if(currentPage>1 || lastPage>1){
+            getReceiverList(noticeCode,currentPage-1);
+        }
+    });
+    $nextPage.on('click',function(){
+        // event.stopPropagation();
+        // event.preventDefault()
+        if(currentPage<lastPage || lastPage>1){
+            getReceiverList(noticeCode,currentPage+1);
+        }
+    });
+
+   
+    function getNoticeInfo(noticeCode){
+        $.get('/getNoticeInfo',{noticeCode:noticeCode}).done(function(result){
+            $noticeTitle.text(result.noticeTitle);
+            switch(result.noticeType){
+                case 'notice':
+                    $noticeType.text('通知');
+                    break;
+                case 'warning':
+                    $noticeType.text('警告');
+                    break;
+                case 'announcement':
+                    $noticeType.text('公告');
+                    break;
+            }
+            $noticeTime.text(result.noticeTime);
+            $noticeSender.text(result.noticeSender);
+            $noticeContent.text(result.noticeContent);
+        })
+    }
+    function getReceiverList(noticeCode,page){
+        $.get('/getReceiverList',{noticeCode:noticeCode,page:page}).done(function(result){
+            console.log(page);
+            $receiverList.empty();
+            $(result.receiverList).each(function(i){
+                var $tr = $('<tr></tr>');
+                $tr.append($('<td>' + (i + 1) + '</td>'));
+                $tr.append($('<td>' + result.receiverList[i].receiverName + '</td>'));
+                if(result.receiverList[i].readStatus){
+                    $tr.append($('<td>是</td>'));
+                }else{
+                    $tr.append($('<td>否</td>'));
+                }
+                $receiverList.append($tr);
+            })
+            $pageIndicator.text(result.page + ' / ' + result.lastPage);
+            currentPage = parseInt(result.page);
+            lastPage = parseInt(result.lastPage);
+            window.parent.adjustHeight();
+        })
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>创建新通告</title>
+    <link rel="stylesheet" href="../public/css/public.css">
+    <script src="../public/js/jquery-3.2.0.min.js"></script>
+<style>
+    textarea{
+        outline:0px;
+        border-radius: 6px;
+        border: 1px solid silver;
+    }
+    .iframe-ct .notice-info{
+        width: 900px;
+        margin: 30px 0;
+        margin-left: 85px;
+    }
+    .iframe-ct .notice-info>ul>li{
+        float: left;
+        margin-right: 30px;
+        margin-bottom: 20px;
+    }
+    .iframe-ct .notice-info>ul>li>label{
+        margin-right: 10px;
+    }
+    .iframe-ct .notice-info>.form-button{
+        text-align: center;
+        margin-left: -85px;
+    }
+    .iframe-ct .notice-info>.form-button>button{
+        margin: 0 15px;
+    }
+    .iframe-ct .notice-info .recipient-checkbox>ul{
+        /*width: 500px;*/
+        /*margin-left: 50px;*/
+        box-sizing: border-box;
+        width: 830px;
+        /*display: inline-block;*/
+        padding: 10px 30px;
+        background-color: #e6e6e6;
+        line-height: 30px;
+        border-radius: 5px;
+    }
+    .iframe-ct .notice-info .recipient-checkbox>ul>li{
+        display: inline-block;
+        margin-right: 40px;
+    }
+</style>
+</head>
+<body>
+    <div class="iframe-ct">
+        <div class="title-bar">
+            <h3>创建新通告</h3>
+        </div>
+        <form action="" class="notice-info clearfix">
+            <ul class="clearfix">
+                <li>
+                    <label for="notice-name">标题</label>
+                    <input type="text" class="medium" id="notice-name">
+                </li>
+                <li>
+                    <label for="notice-type">通告类型</label>
+                    <select name="notice-type" id="notice-type" class="short">
+                        <option value="notice">通知</option>
+                        <option value="warning">警告</option>
+                        <option value="announcement">公告</option>
+                    </select>
+                </li>
+                <li class="recipient-checkbox">
+                    <p>接收人</p>
+                    <!--<div>-->
+                    <ul>
+                        <!--<li>
+                            <input type="checkbox">&nbsp<span>安监办1</span>
+                        </li>
+                        <li>
+                            <input type="checkbox">&nbsp<span>安监办2</span>
+                        </li>
+                        <li>
+                            <input type="checkbox">&nbsp<span>安监办3</span>
+                        </li>
+                        <li>
+                            <input type="checkbox">&nbsp<span>安监办4</span>
+                        </li>
+                        <li>
+                            <input type="checkbox">&nbsp<span>安监办5</span>
+                        </li>
+                        <li>
+                            <input type="checkbox">&nbsp<span>企业1</span>
+                        </li>
+                        <li>
+                            <input type="checkbox">&nbsp<span>企业2</span>
+                        </li>
+                        <li>
+                            <input type="checkbox">&nbsp<span>企业3</span>
+                        </li>
+                        <li>
+                            <input type="checkbox">&nbsp<span>企业4</span>
+                        </li>
+                        <li>
+                            <input type="checkbox">&nbsp<span>企业5</span>
+                        </li>-->
+
+                        <!--<li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>-->
+                    </ul>
+                        
+                    <!--</div>-->
+                    <!--<select name="recipient" id="recipient" class="medium">
+                        <option value="office1">安监办</option>
+                        <option value="office2">企业</option>
+                    </select>-->
+                </li>
+                <li>
+                    <label for="notice-content">通告内容</label>
+                    <br><br>
+                    <textarea name="notice-content" id="notice-content" cols="135" rows="20"></textarea>
+                </li>
+            </ul>
+            <div class="form-button">
+                <button class="back-btn">返回</button>
+                <button class="blue-btn">发送</button>
+            </div>
+        </form>
+    </div>
+    
+</body>
+
+<script>
+    var $recipientSelect = $('.notice-info .recipient'),
+        $backBtn = $('.form-button .back-btn'),
+        $recipientCheckbox = $('.notice-info .recipient-checkbox>ul');
+
+
+
+    $backBtn.on('click',function(){
+        event.preventDefault();
+        console.log(1);
+        window.parent.jump('views/notice/getNoticelist.html');
+    })
+
+    getSubordinateList(123);
+    function getSubordinateList(userCode){
+        $.get('/getSubordinateList',{userCode:userCode}).done(function(result){
+            $recipientCheckbox.empty();
+            $(result).each(function(i){
+                var $li = $('<li></li>');
+                $li.append($(
+                    '<input '+
+                    'type="checkbox"'+
+                    'name="subordinate"'+
+                    'value='+ result[i].companyCode+
+                    '>&nbsp<span>'+
+                    result[i].companyName +
+                    '</span>'
+                ))
+                $recipientCheckbox.append($li);
+            })
+            window.parent.adjustHeight();
+        })
+    }
+</script>
+</html>

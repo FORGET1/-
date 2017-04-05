@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <link rel="stylesheet" href="../public/css/public.css">
+    
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_aaebiml8x5b138fr.css">
+   
+    <script src="../public/js/jquery-3.2.0.min.js"></script>
+<style>
+    .iframe-ct{
+        /*height: 1000px;*/
+    }
+    .iframe-ct .information{
+        width: 900px;
+        margin: 30px 0;
+        margin-left: 85px;
+    }
+    .iframe-ct .information>ul>li{
+        float: left;
+        margin-right: 30px;
+        margin-bottom: 20px;
+    }
+    .iframe-ct .information>ul>li>label{
+        margin-right: 10px;
+    }
+    .iframe-ct .information>.form-button{
+        text-align: center;
+        margin-left: -85px;
+    }
+    .iframe-ct .information>.form-button>button{
+        margin: 0 15px;
+    }
+    
+</style>
+</head>
+<body>
+    <div class="iframe-ct">
+        <div class="title-bar">
+            <div class="title-bar">
+            <h3>部门信息</h3>
+            </div>
+        </div>
+            <form action="" class="information clearfix">
+            <input id="department-code" style="display: none;" type="text"/>
+                <ul class="clearfix">
+                	
+                    <li>
+                        <label for="department-name">部门名称</label>
+                        <input type="text" class="medium" id="department-name">
+                    </li>
+                    
+                    <li>
+                        <label for="department-parent">管辖部门</label>
+                        <input type="text" class="medium" id="department-parent" name="" readonly="readonly">
+                    </li>
+                    <li>
+                        <label for="legal-representative">法人代表</label>
+                        <input type="text" class="medium" id="department-person">
+                    </li>
+                    <li>
+                        <label for="contact-number">联系电话</label>
+                        <input type="text" class="medium" id="department-person-tel">
+                    </li>
+                    <li>
+                        <label for="business-phone">部门电话</label>
+                        <input type="text" class="medium" id="department-tel">
+                    </li>
+                    
+                    <li>
+                        <label for="address">部门地址</label>
+                        <input type="text" class="medium" id="department-addr">
+                    </li>
+                </ul>
+                <div class="form-button">
+                    <button type="button" class="" onclick="javascript:history.go(-1);">返回</button>
+                    <button type="button" class="" onclick="modify()">保存</button>
+                </div>
+            </form>
+       
+    </div>
+   <script type="text/javascript" src="../public/js/public.js" ></script>
+   
+   <script type="text/javascript" src="../public/js/department/department.js"></script>
+    <script type="text/javascript">
+    	
+        $(document).ready(function(){
+           
+            var url = location.href;
+            console.log(url);
+            var code = url.split("?")[1].split("=")[1]
+            showModify(code);
+            $("input").on("focus",function(){
+            	$("input").css({
+                    "border-color":"black",
+                    "border-style":"inset",
+                    "border-width":"1px"
+               		 });
+            });
+       });
+    </script>
+</body>
+</html>

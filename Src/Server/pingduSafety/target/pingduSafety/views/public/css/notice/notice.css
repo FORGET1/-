@@ -1,0 +1,23 @@
+@CHARSET "UTF-8";
+
+.patrol-info {
+	width: 100%; 
+	height: 20%;
+	margin-top: 1%;
+	margin-left: 10%;	
+}
+#input-4 {
+	margin-top: 1%;
+	margin-left: 10%;
+}
+.patrol-content {
+	width: 90%; 
+	height: 20%;
+	margin-top: 1%;
+	margin-left: 5%;
+}
+
+.img-row {
+	margin-top: 1%;
+	padding-left: 5%;
+}

@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>添加项点</title>
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_z741tdpn6rum1jor.css">
+	<link rel="stylesheet" href="../public/css/public.css">
+	<link rel="stylesheet" href="../public/css/sslAlert1.0.css">
+    <script src="../public/js/jquery-3.2.0.min.js"></script>
+	<script src="../public/js/sslAlert1.0.js"></script>
+	<script src="../public/js/point/point.js"></script>
+	<script src="../public/js/public.js"></script>
+
+<style>
+    .iframe-ct .information{
+        width: 900px;
+        margin: 30px 0;
+        margin-left: 85px;
+    }
+    .iframe-ct .information>ul>li{
+        float: left;
+        margin-right: 30px;
+        margin-bottom: 20px;
+    }
+    .iframe-ct .information>ul>li>label{
+        margin-right: 10px;
+    }
+    .iframe-ct .information>.form-button{
+        text-align: center;
+        margin-left: -85px;
+    }
+    .iframe-ct .information>.form-button>button{
+        margin: 0 15px;
+    }
+	#point-name{
+	   margin-left:12px;
+	}
+	#point-address{
+	   margin-left:12px;
+	}
+	#leading-person{
+	   margin-left:26px;
+	}
+    #point-entPrincipal{
+       margin-left:26px;
+    }
+	#secyrity-tips{
+	    margin-left:12px;
+	    text-indent: 5px;
+        outline:0px;
+        padding: 0;
+        box-sizing: border-box;
+        border-radius: 6px;
+        border: 1px solid silver;
+        line-height: 17px;
+		width:750px;
+	}
+	#phone{
+	}
+	#GPX-X{
+	}
+	#GPX-Y{
+	}
+	
+</style>
+</head>
+<body>
+    <div class="iframe-ct">
+        <div class="title-bar">
+            <h3>添加项点</h3>
+        </div>
+            <form action="" class="information clearfix">
+                <ul class="clearfix">
+                    <li>
+                        <label for="point-name">项点名称</label>
+                        <input type="text" class="medium " id="point-name">
+                    </li>
+                    <li>
+                        <label for="company-belong">所属企业</label>
+                        <select name="company-type" id="company-belong" class="short">
+                            <option value="gas-station">***加油站</option>
+                            <option value="chemical-plant">***化工厂</option>
+                        </select>
+                    </li>
+                    <li>
+                        <label for="management-department">管辖部门</label>
+						<input type="text" class="medium" onFocus=this.blur()  value="***安检办" id="management-department">
+                    </li>
+                    <li>
+                        <label for="point-address">项点地址</label>
+                        <input type="text" class="long " id="point-address">
+                    </li>
+                    <li>
+                        <label for="point-entPrincipal">负责人</label>
+                        <input type="text" class="medium" id="point-entPrincipal">
+                    </li>
+                    <li>
+                        <label for="prinPhone">负责人电话</label>
+                        <input type="text" class="medium" id="prinPhone">
+                    </li>
+                    <li>
+                        <label for="GPX-X">GPX-X坐标</label>
+                        <input type="text" class="medium " id="GPX-X">
+                    </li>
+					<li>
+                        <label for="GPX-Y">GPX-Y坐标</label>
+                        <input type="text" class="medium" id="GPX-Y">
+                    </li>
+					<li>
+                        <label  style="padding-top:0; " for="secyrity-tips">安全提示</label>
+						<!--
+                         <input type="text" class="long" id="secyrity-tips">
+						 -->
+						 <textarea id="secyrity-tips"></textarea>
+                    </li>
+                </ul>
+				
+                <div class="form-button">
+				   <!--<input type="button" name="Submit" onclick="javascript:history.back(-1);" value="返回上一页"/>-->
+                    <button class="" >返回</button>
+                    <button class="blue-btn" onclick="addPoint()" type="button" >保存</button>
+                </div>
+            </form>
+			    </div>
+</body>
+</html>

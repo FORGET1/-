@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>修改巡检条目</title>
+    <link rel="stylesheet" href="../public/css/public.css">
+    <script src="../public/js/jquery-3.2.0.min.js"></script>
+<style>
+    .iframe-ct .information{
+        width: 900px;
+        margin: 30px 0;
+        margin-left: 85px;
+    }
+    .iframe-ct .information>ul>li{
+        float: left;
+        margin-right: 30px;
+        margin-bottom: 20px;
+    }
+    .iframe-ct .information>ul>li>label{
+        margin-right: 10px;
+    }
+    .iframe-ct .information>.form-button{
+        text-align: center;
+        margin-left: -85px;
+    }
+    .iframe-ct .information>.form-button>button{
+        margin: 0 15px;
+    }
+	</style>
+</head>
+<body>
+    <div class="iframe-ct">
+        <div class="title-bar">
+            <h3>修改巡检条目</h3>
+        </div>
+        <form action="" class="information clearfix">
+             <ul class="clearfix">
+                  <li>
+                      <label for="point-name">巡检条目内容</label>
+                       <input type="text" class="long " id="point-name">
+                  </li>
+             </ul>
+        </form>
+	    <div class="title-bar">
+            <h3>选择关联项点</h3>
+        </div><br>
+		<label class="clearfix" for="" style="margin-left:80px; "> 请选择关联项点:</label>
+		<form action="" class="information clearfix">
+		    <input type='checkbox'   id="check-all"/> &nbsp 全选
+			<input type='checkbox'  style="margin-left:30px; " onchange='checkChange(this)' id="check" value=""/>&nbsp项点1
+			<input type='checkbox' style="margin-left:30px; " onchange='checkChange(this)' id="check" value=""/>&nbsp项点2
+		   <input type='checkbox' style="margin-left:30px; " onchange='checkChange(this)' id="check" value=""/>&nbsp项点3
+		   <input type='checkbox' style="margin-left:30px; " onchange='checkChange(this)' id="check" value=""/>&nbsp项点4
+			<div class="form-button">
+				<button class="">返回</button>
+				<button class="blue-btn">保存</button>
+			</div>		
+		</form>
+   </div>
+</body>
+</html>﻿﻿

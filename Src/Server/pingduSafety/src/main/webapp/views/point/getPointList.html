@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>项点列表</title>
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_z741tdpn6rum1jor.css">
+	<link rel="stylesheet" href="../public/css/public.css">
+	<link rel="stylesheet" href="../public/css/sslAlert1.0.css">
+    <script src="../public/js/jquery-3.2.0.min.js"></script>
+	
+</head>
+<style>
+</style>
+<body>	
+
+ <div class="iframe-ct">
+<div class="point">
+		 <div class="title-bar">
+            <h3>项点列表</h3>
+            <span class="">
+                <i class="iconfont icon-search"></i>
+                <div class="search-panel">
+                    <form action="">
+                        <label for="">关键词</label></br>
+                        <input type="text" id="keyword"></br>
+						<label for="search-type">按照</label></br>
+                        <select name="search-type" id="search-type" class="">
+                            <option value="title">项点名称</option>
+                            <option value="sender">所属企业</option>
+                            <option value="receiver">负责人</option>
+							<option value="receiver">负责人电话</option>
+                        </select></br>
+                        <button onclick="searchPoint(1)" type="button">查询</button>
+                    </form>
+                </div>
+            </span>
+			<span class="create-message" onClick="turnToPage('addPoint.html')">+添加项点</span>
+        </div>
+            <table id="list-table">
+                <thead>
+                    <tr>
+                        <td>序号</td>
+                        <td>项点名称</td>
+                        <td>所属企业</td>
+                        <td>负责人</td>
+						<td>负责人电话</td>
+                        <td>操作</td>
+                    </tr>
+                </thead>
+                <tbody>
+                 
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                    </tr>
+                </tfoot>
+            </table>
+            <div class="table-button">
+                <button class="" id="up-btn">上一页</button>
+                <span id="page"></span> / <span id="lastpage"></span>
+                <button class="" id="down-btn">下一页</button>
+            </div>
+        </div>
+		  </div>
+	<script>
+		$(document).ready(function(){
+	    getPointList(1);
+       });
+       function GetQueryString(name)
+      {
+	var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+	var r = window.location.search.substr(1).match(reg);
+	if(r!=null)return  unescape(r[2]); return null;
+       }
+    </script>
+    <script src="../public/js/sslAlert1.0.js"></script>
+	<script src="../public/js/point/point.js"></script>
+	<script src="../public/js/public.js"></script>
+</body>
+</html>

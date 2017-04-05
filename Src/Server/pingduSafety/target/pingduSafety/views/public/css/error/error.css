@@ -1,0 +1,31 @@
+@CHARSET "UTF-8";
+
+div {
+	
+}
+.tip {
+	padding-top:10%;
+	padding-left:100%;
+}
+.tip .title {
+	font-size: 120px;
+}
+.tip .sub {
+	text-align:right;
+	width:500px;
+}
+
+.suggest {
+	font-size:30px;
+	padding-top:10%;
+	padding-left:100%;
+	width: 500px;
+	text-align: right;
+}
+.suggest a {
+	text-decoration: none;
+	color: rgba(255,255,255,0.5);
+}
+.suggest a:hover {
+	color: rgba(255,255,255,1);
+}

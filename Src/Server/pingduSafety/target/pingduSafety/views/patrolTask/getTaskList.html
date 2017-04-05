@@ -1,0 +1,241 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>巡检任务列表</title>
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_z741tdpn6rum1jor.css">
+	<link rel="stylesheet" href="../public/css/public.css">
+	<link rel="stylesheet" href="../public/css/sslAlert1.0.css">
+    <script src="../public/js/jquery-3.2.0.min.js"></script>
+	<script src="../public/js/sslAlert1.0.js"></script>
+	<script src="../public/js/patrolTask/patrolTask.js"></script>
+	
+</head>
+<style>
+</style>
+<body>	
+ <div class="iframe-ct">
+<div class="task">
+		 <div class="title-bar">
+            <h3>巡检任务列表</h3>
+            <span class="">
+                <i class="iconfont icon-search"></i>
+                <div class="search-panel">
+                    <form action="">
+                        <label for="">关键词</label></br>
+                        <input type="text" id="keyword"></br>
+						<label for="search-type">按照</label></br>
+                        <select name="search-type" id="search-type" class="">
+                            <option value="title">企业名称</option>
+                            <option value="sender">管辖部门</option>
+                            <option value="receiver">项点名称</option>
+                        </select></br>
+                        <button>查询</button>
+                    </form>
+                </div>
+            </span>
+			<span class="create-message">+添加吗？</span>
+        </div>
+            <table>
+                <thead>
+                    <tr>
+                        <td>序号</td>
+                        <td>企业名称</td>
+                        <td>管辖部门</td>
+                        <td>项点名称</td>
+						<td>巡检时间</td>
+						<td>问题</td>
+                        <td>操作</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>xxx化工厂</td>
+                        <td>xxx安监局</td>
+                        <td>xxx大楼</td>
+                        <td>年/月/日/时间</td>
+						<td>有</td>
+                        <td>
+                            <button onClick="turnToTaskInfo()">审阅</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>xxx化工厂</td>
+                        <td>xxx安监局</td>
+                        <td>xxx大楼</td>
+                        <td>年/月/日/时间</td>
+						<td>有</td>
+                        <td>
+                            <button onClick="turnToTaskInfo()">审阅</button>
+                        </td>
+                    </tr>
+                     <tr>
+                        <td>3</td>
+                        <td>xxx化工厂</td>
+                        <td>xxx安监局</td>
+                        <td>xxx大楼</td>
+                        <td>年/月/日/时间</td>
+						<td>有</td>
+                        <td>
+                            <button onClick="turnToTaskInfo()">审阅</button>
+                        </td>
+                    </tr>
+                     <tr>
+                        <td>4</td>
+                        <td>xxx化工厂</td>
+                        <td>xxx安监局</td>
+                        <td>xxx大楼</td>
+                        <td>年/月/日/时间</td>
+						<td>有</td>
+                        <td>
+                            <button onClick="turnToTaskInfo()">审阅</button>
+                        </td>
+                    </tr>
+                     <tr>
+                        <td>5</td>
+                        <td>xxx化工厂</td>
+                        <td>xxx安监局</td>
+                        <td>xxx大楼</td>
+                        <td>年/月/日/时间</td>
+						<td>有</td>
+                        <td>
+                            <button onClick="turnToTaskInfo()">审阅</button>
+                        </td>
+                    </tr>
+                     <tr>
+                        <td>6</td>
+                        <td>xxx化工厂</td>
+                        <td>xxx安监局</td>
+                        <td>xxx大楼</td>
+                        <td>年/月/日/时间</td>
+						<td>有</td>
+                        <td>
+                            <button onClick="turnToTaskInfo()">审阅</button>
+                        </td>
+                    </tr>
+					 <tr>
+                        <td>7</td>
+                        <td>xxx化工厂</td>
+                        <td>xxx安监局</td>
+                        <td>xxx大楼</td>
+                        <td>年/月/日/时间</td>
+						<td>有</td>
+                        <td>
+                            <button onClick="turnToTaskInfo()">审阅</button>
+                        </td>
+                    </tr>
+					 <tr>
+                        <td>8</td>
+                        <td>xxx化工厂</td>
+                        <td>xxx安监局</td>
+                        <td>xxx大楼</td>
+                        <td>年/月/日/时间</td>
+						<td>有</td>
+                        <td>
+                            <button onClick="turnToTaskInfo()">审阅</button>
+                        </td>
+                    </tr>
+					 <tr>
+                        <td>9</td>
+                        <td>xxx化工厂</td>
+                        <td>xxx安监局</td>
+                        <td>xxx大楼</td>
+                        <td>年/月/日/时间</td>
+						<td>有</td>
+                        <td>
+                            <button onClick="turnToTaskInfo()">审阅</button>
+                        </td>
+                    </tr>
+					 <tr>
+                        <td>10</td>
+                        <td>xxx化工厂</td>
+                        <td>xxx安监局</td>
+                        <td>xxx大楼</td>
+                        <td>年/月/日/时间</td>
+						<td>有</td>
+                        <td>
+                            <button onClick="turnToTaskInfo()">审阅</button>
+                        </td>
+                    </tr>
+					 <tr>
+                        <td>11</td>
+                        <td>xxx化工厂</td>
+                        <td>xxx安监局</td>
+                        <td>xxx大楼</td>
+                        <td>年/月/日/时间</td>
+						<td>有</td>
+                        <td>
+                            <button onClick="turnToTaskInfo()">审阅</button>
+                        </td>
+                    </tr>
+					 <tr>
+                        <td>12</td>
+                        <td>xxx化工厂</td>
+                        <td>xxx安监局</td>
+                        <td>xxx大楼</td>
+                        <td>年/月/日/时间</td>
+						<td>有</td>
+                        <td>
+                            <button onClick="turnToTaskInfo()">审阅</button>
+                        </td>
+                    </tr>
+					<tr>
+                        <td>13</td>
+                        <td>xxx化工厂</td>
+                        <td>xxx安监局</td>
+                        <td>xxx大楼</td>
+                        <td>年/月/日/时间</td>
+						<td>有</td>
+                        <td>
+                            <button onClick="turnToTaskInfo()">审阅</button>
+                        </td>
+                    </tr>
+					<tr>
+                        <td>14</td>
+                        <td>xxx化工厂</td>
+                        <td>xxx安监局</td>
+                        <td>xxx大楼</td>
+                        <td>年/月/日/时间</td>
+						<td>有</td>
+                        <td>
+                            <button onClick="turnToTaskInfo()">审阅</button>
+                        </td>
+                    </tr>
+					<tr>
+                        <td>15</td>
+                        <td>xxx化工厂</td>
+                        <td>xxx安监局</td>
+                        <td>xxx大楼</td>
+                        <td>年/月/日/时间</td>
+						<td>有</td>
+                        <td>
+                            <button onClick="turnToTaskInfo()">审阅</button>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                    </tr>
+                </tfoot>
+            </table>
+            <div class="table-button">
+                <button class="">上一页</button>
+                <span>1 / 2</span>
+                <button class="">下一页</button>
+            </div>
+        </div>
+		  </div>
+	<script>
+    </script>
+</body>
+</html>

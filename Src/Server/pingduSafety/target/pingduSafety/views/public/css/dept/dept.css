@@ -1,0 +1,58 @@
+.pub_table tr td:nth-child(2n+1) {
+	background-color: #ededed;
+}
+.pub_table tr td:nth-child(2n) {
+    width: 32%;
+}
+.pub_table {
+	margin-top:20px;
+}
+
+.dept-other {
+	margin-top: 20px;
+}
+#point_table {
+	
+	margin-top: 20px;
+}
+#more_point,#refresh_point,#add_point,#first_page,#pre_page,#next_page,#last_page,#del_point {
+	cursor: pointer;
+}
+#dept_code {
+	visibility: hidden;
+}
+
+.pa-row {
+	background-color: rgb(0,146,255);
+}
+.point-row>div {
+	border-radius: 2px;
+	background-color: #3a3633;
+}
+.point-row>div p {
+	color: rgba(255,255,255,1);
+	margin-top: 1%;
+}
+
+
+.point-op {
+	padding-top:0.4%;
+	padding-bottom:0.2%;
+}
+
+.dept-point-row {
+	padding-left:0%;
+	padding-right: 0%;
+}
+.dept-point-row>div div {
+	padding-top:0.6%;
+	background-color:#191c2c;
+	color:white;
+}
+/* i { */
+/* 	cursor: pointer; */
+/* } */
+/* commentted by piao */
+.modal-point {
+	padding-left:5%;
+}

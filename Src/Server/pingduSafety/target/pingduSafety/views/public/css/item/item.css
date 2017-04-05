@@ -1,0 +1,21 @@
+@CHARSET "UTF-8";
+
+
+/* .bor { */
+/* 	border:solid 5px #666666; */
+/* } */
+
+/* .dev-span { */
+/* 	border-style: solid; */
+/* 	border-width: 1px; */
+/* 	margin:1%; */
+/* 	padding:1%; */
+/* } */
+
+.point {
+	margin-left: 1%;
+	margin-right: 1%;
+}
+#devs {
+	padding-top:1%;
+}

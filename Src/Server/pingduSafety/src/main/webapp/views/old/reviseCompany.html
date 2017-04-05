@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>修改企业信息</title>
+<style>
+    body,ul,li,h3{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,PingFang SC,Source Han Sans CN,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif;
+        color: #333333;
+        font-size: 14px;
+    }
+    .clearfix:after{
+        content: "";
+        display: block;
+        clear: both;
+    }
+    button{
+        outline:0px;
+        width: 60px;
+        height: 25px;
+        /*line-height: 25px;*/
+        border-radius: 6px;
+        border: 1px solid #b3b3b3;
+        font-weight: bold;
+        background-image: linear-gradient(to bottom,#f2f2f2,#cccccc);
+    }
+    button:active{
+        background-image: linear-gradient(to top,#f2f2f2,#cccccc);
+        box-shadow: 0px 0px 3px gray inset;
+    }
+    .blue-btn{
+        background-image: linear-gradient(to bottom,#0096ff,#0058ff);
+        color: white;
+    }
+    .blue-btn:active{
+        background-image: linear-gradient(to top,#0096ff,#0058ff);
+        box-shadow: 0px 0px 3px gray inset;
+    }
+    .short{
+        width: 110px;
+    }
+    .medium{
+        width: 220px;
+    }
+    .long{
+        width: 750px;
+    }
+    input{
+        text-indent: 5px;
+        outline:0px;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        border-radius: 6px;
+        border: 1px solid silver;
+        line-height: 17px;
+    }
+    select{
+        outline:0px;
+        box-sizing: border-box;
+        border-radius: 6px;
+        border: 1px solid silver;
+        background-color: white;
+    }
+    .iframe-ct{
+        width: 1000px;
+        height: 720px;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+    .title-bar{
+        width: 100%;
+        height: 28px;
+        background-image: linear-gradient(to bottom,#f2f2f2,#cccccc);
+        box-shadow: 0px 1px 1px silver;
+    }
+    .title-bar>h3{
+        line-height: 28px;
+        margin-left: 20px;
+    }
+    .iframe-ct>.title-bar{
+        margin-top: 30px;
+    }
+    .iframe-ct .information{
+        width: 900px;
+        margin: 30px 0;
+        margin-left: 85px;
+        /*margin-top: */
+    }
+    .iframe-ct .information>ul>li{
+        float: left;
+        margin-right: 30px;
+        margin-bottom: 20px;
+    }
+    .iframe-ct .information>ul>li>label{
+        margin-right: 10px;
+    }
+    .iframe-ct .information>.form-button{
+        text-align: center;
+        margin-left: -85px;
+    }
+    .iframe-ct .information>.form-button>button{
+        margin: 0 15px;
+    }
+    .license>table{
+        width: 950px;
+        margin: 30px auto;
+        text-align: center;
+        border-collapse: collapse;
+    }
+    .license>table>thead>tr{
+        border-bottom: 1px solid #b3b3b3;
+        line-height: 40px;
+    }
+    .license>table>tfoot>tr{
+        border-top: 1px solid #b3b3b3;
+        line-height: 1px;
+    }
+    .license>table>tbody>tr{
+        line-height: 40px;
+    }
+    .license .table-button{
+        text-align: center;
+    }
+    .license .table-button>button{
+        margin: 0 15px;
+    }
+</style>
+</head>
+<body>
+    <div class="iframe-ct">
+        <div class="title-bar">
+            <h3>修改企业信息</h3>
+        </div>
+        <!--<div class="information clearfix">-->
+            <form action="" class="information clearfix">
+                <ul class="clearfix">
+                    <li>
+                        <label for="company-name">企业名称</label>
+                        <input type="text" class="medium" id="company-name">
+                    </li>
+                    <li>
+                        <label for="company-type">企业类型</label>
+                        <select name="company-type" id="company-type" class="short">
+                            <option value="gas-station">加油站</option>
+                            <option value="chemical-plant">化工厂</option>
+                        </select>
+                    </li>
+                    <li>
+                        <label for="management-department">管辖部门</label>
+                        <select name="management-department" id="management-department" class="medium">
+                            <option value="office1">安监办1</option>
+                            <option value="office2">安监办2</option>
+                        </select>
+                    </li>
+                    <li>
+                        <label for="legal-representative">法人代表</label>
+                        <input type="text" class="short" id="legal-representative">
+                    </li>
+                    <li>
+                        <label for="business-phone">企业电话</label>
+                        <input type="text" class="medium" id="business-phone">
+                    </li>
+                    <li>
+                        <label for="contact-number">联系电话</label>
+                        <input type="text" class="medium" id="contact-number">
+                    </li>
+                    <li>
+                        <label for="address">企业地址</label>
+                        <input type="text" class="long" id="address">
+                    </li>
+                </ul>
+                <div class="form-button">
+                    <button class="">返回</button>
+                    <button class="blue-btn">保存</button>
+                </div>
+            </form>
+        <!--</div>-->
+        <div class="license">
+            <div class="title-bar">
+                <h3>企业相关证件</h3>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <td>序号</td>
+                        <td>证件名称</td>
+                        <td>上传时间</td>
+                        <td>到期时间</td>
+                        <td>是否过期</td>
+                        <td>操作</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10</td>
+                        <td>2017-10-10</td>
+                        <td>否</td>
+                        <td>
+                            <button>查看</button>
+                            <button>删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10</td>
+                        <td>2017-10-10</td>
+                        <td>否</td>
+                        <td>
+                            <button>查看</button>
+                            <button>删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10</td>
+                        <td>2017-10-10</td>
+                        <td>否</td>
+                        <td>
+                            <button>查看</button>
+                            <button>删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10</td>
+                        <td>2017-10-10</td>
+                        <td>否</td>
+                        <td>
+                            <button>查看</button>
+                            <button>删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10</td>
+                        <td>2017-10-10</td>
+                        <td>否</td>
+                        <td>
+                            <button>查看</button>
+                            <button>删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10</td>
+                        <td>2017-10-10</td>
+                        <td>否</td>
+                        <td>
+                            <button>查看</button>
+                            <button>删除</button>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                    </tr>
+                </tfoot>
+            </table>
+            <div class="table-button">
+                <button class="">上一页</button>
+                <span>1 / 2</span>
+                <button class="">下一页</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

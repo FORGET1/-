@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>文件管理</title>
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_aaebiml8x5b138fr.css">
+    <link rel="stylesheet" href="../public/css/public.css">
+    <script src="../public/js/jquery-3.2.0.min.js"></script>
+<style>
+    .iframe-ct{
+        position: relative;
+    }
+    .add-panel{
+        width: 200px;
+        font-size: 12px;
+        display: none;
+        position: absolute;
+        top: 28px;
+        right: 0px;
+        z-index: 6;
+        background-color: #333333;
+        color: white;
+        border-radius: 0 0 5px 5px;
+        opacity: 0.8;
+        transition: all 1s;
+    }
+    .add-panel>form{
+        margin: 20px;
+        margin-top: 10px;
+    }
+    #file-name{
+        width: 160px;
+    }
+    .add-panel>form>.file-select{
+        width: 160px;
+    }
+    .add-panel>form>button{
+        margin-top: 10px;
+    }
+    .title-bar>span:hover .add-panel{
+        display: block;
+    }
+</style>
+</head>
+<body>
+    <div class="iframe-ct">
+        <div class="title-bar">
+            <h3>文件管理</h3>
+            <span class="">
+                <i class="iconfont icon-search"></i>
+                <div class="search-panel">
+                    <form action="">
+                        <label for="">关键词</label><br>
+                        <input type="text" id="keyword"><br>
+                        <label for="search-type">按照</label><br>
+                        <select name="search-type" id="search-type" class="">
+                            <option value="title">通知标题</option>
+                            <option value="sender">发送者</option>
+                            <option value="receiver">接收者</option>
+                        </select><br>
+                        <button>查询</button>
+                    </form>
+                </div>
+            </span>
+            <span class="add-file">
+                +添加文件
+                <div class="add-panel">
+                    <form action="">
+                        <label for="file-name">标题</label><br>
+                        <input type="text" id="file-name"><br>
+                        <input class="file-select" type="file"><br>
+                        <button>上传</button>
+                    </form>
+                </div>
+            </span>
+        </div>
+        <div class="file">
+            <table>
+                <thead>
+                    <tr>
+                        <td>序号</td>
+                        <td>文件名称</td>
+                        <td>发布时间</td>
+                        <td>发布人</td>
+                        <td>下载次数</td>
+                        <td>操作</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10 8:00</td>
+                        <td>安监局</td>
+                        <td>3</td>
+                        <td>
+                            <button class="view-btn">下载</button>
+                            <button class="delete-btn">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10 8:00</td>
+                        <td>安监局</td>
+                        <td>3</td>
+                        <td>
+                            <button class="view-btn">下载</button>
+                            <button class="delete-btn">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10 8:00</td>
+                        <td>安监局</td>
+                        <td>3</td>
+                        <td>
+                            <button class="view-btn">下载</button>
+                            <button class="delete-btn">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10 8:00</td>
+                        <td>安监局</td>
+                        <td>3</td>
+                        <td>
+                            <button class="view-btn">下载</button>
+                            <button class="delete-btn">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10 8:00</td>
+                        <td>安监局</td>
+                        <td>3</td>
+                        <td>
+                            <button class="view-btn">下载</button>
+                            <button class="delete-btn">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10 8:00</td>
+                        <td>安监局</td>
+                        <td>3</td>
+                        <td>
+                            <button class="view-btn">下载</button>
+                            <button class="delete-btn">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10 8:00</td>
+                        <td>安监局</td>
+                        <td>3</td>
+                        <td>
+                            <button class="view-btn">下载</button>
+                            <button class="delete-btn">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10 8:00</td>
+                        <td>安监局</td>
+                        <td>3</td>
+                        <td>
+                            <button class="view-btn">下载</button>
+                            <button class="delete-btn">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10 8:00</td>
+                        <td>安监局</td>
+                        <td>3</td>
+                        <td>
+                            <button class="view-btn">下载</button>
+                            <button class="delete-btn">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10 8:00</td>
+                        <td>安监局</td>
+                        <td>3</td>
+                        <td>
+                            <button class="view-btn">下载</button>
+                            <button class="delete-btn">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10 8:00</td>
+                        <td>安监局</td>
+                        <td>3</td>
+                        <td>
+                            <button class="view-btn">下载</button>
+                            <button class="delete-btn">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10 8:00</td>
+                        <td>安监局</td>
+                        <td>3</td>
+                        <td>
+                            <button class="view-btn">下载</button>
+                            <button class="delete-btn">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10 8:00</td>
+                        <td>安监局</td>
+                        <td>3</td>
+                        <td>
+                            <button class="view-btn">下载</button>
+                            <button class="delete-btn">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10 8:00</td>
+                        <td>安监局</td>
+                        <td>3</td>
+                        <td>
+                            <button class="view-btn">下载</button>
+                            <button class="delete-btn">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10 8:00</td>
+                        <td>安监局</td>
+                        <td>3</td>
+                        <td>
+                            <button class="view-btn">下载</button>
+                            <button class="delete-btn">删除</button>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                    </tr>
+                </tfoot>
+            </table>
+            <div class="table-button">
+                <button class="">上一页</button>
+                <button class="">下一页</button>
+                <span>1 / 2</span>
+                <button class="">首页</button>
+                <button class="">尾页</button>
+            </div>
+        </div>
+        <!--<div class="dialog-ct">
+            <div class="delete-dialog">
+                <div class="title-bar">
+                    <h3>删除通知</h3>
+                </div>
+                <div class="dialog-btn">
+                    <button class="cancel-btn">取消</button>
+                    <button class="delete-btn blue-btn">删除</button>
+                </div>
+            </div>
+        </div>-->
+    </div>
+</body>
+<script>
+    var $iframe = $('#iframe'),
+        $contentDiv = $('.content'),
+        $tabPanel = $('.tab-panel'),
+        // $deleteDialog = $('.dialog-ct'),
+        // $deleteDialogCancelBtn = $('.dialog-ct .cancel-btn'),
+        $deleteBtn = $('.file .delete-btn'),
+        $forwardingBtn = $('.file .forwarding-btn'),
+        $navfile = $('.navbar .nav-file'),
+        $navCompany = $('.navbar .nav-company');
+
+
+    $deleteBtn.on('click',function(){
+        window.parent.showDialog('删除',function(){
+            console.log(1);
+        });
+    })
+
+    $deleteDialogCancelBtn.on('click',function(){
+        $deleteDialog.hide();
+    })
+    $tabPanel.on('click','div',function(){
+        $(this).parent().find('div').removeClass('current');
+        $(this).addClass('current');
+    })
+</script>
+</html>

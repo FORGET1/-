@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>巡检任务详情</title>
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_z741tdpn6rum1jor.css">
+	<link rel="stylesheet" href="../public/css/public.css">
+	<link rel="stylesheet" href="../public/css/sslAlert1.0.css">
+	<script src="../public/js/jquery-3.2.0.min.js"></script>
+</head>
+<style>
+.taskInfo table{
+        width: 950px;
+        margin: 30px auto;
+        text-align: center;
+        border-collapse: collapse;
+    }
+ 
+
+  .iframe-ct table>tbody>tr>td{
+        line-height: 35px;
+		border:1px solid #b3b3b3;
+    }
+	.iframe-ct table .item{
+       width:150px;
+	   background-color:#CCCCCC;
+   }
+   .problem-description,.suggestion-description{
+	    margin-left:12px;
+	    text-indent: 5px;
+        outline:0px;
+        padding: 0;
+        box-sizing: border-box;
+        border-radius: 6px;
+        border: 1px solid silver;
+        line-height: 17px;
+		width:975px;
+		height:150px;
+	}
+ </style>
+<body>	
+<div class="iframe-ct">
+    <div class="taskInfo">
+        <div class="title-bar">
+            <h3>巡检任务基本信息</h3>
+        </div>
+		<table class="">
+			<tr>
+				<td class="item">企业名称</td>
+				<td id="entName">XXXX</td>
+				<td class="item">项点名称</td>
+				<td id = "pointName">XXXX</td>
+			</tr>
+			<tr>
+				<td class="item">管辖部门</td>
+				<td id = "deptName">XXXX</td>
+				<td class="item">NFC标签号</td>
+				<td id = "NFC">XXXX</td>
+			</tr>
+			<tr>
+				<td class="item">巡检人</td>
+				<td id = "userName">XXXX</td>
+				<td class="item" >巡检时间</td>
+				<td id = "completeTime">XXXX</td>
+		   </tr>
+                	</table>
+			 <input type="text" class="medium" id="taskCode" >
+    </div>
+    <div class="taskPhoto">
+        <div class="title-bar">
+            <h3>巡检照片</h3>
+        </div>
+		<div class="Image">
+         <table id = "Images">
+		   <tr>
+		   </tr>
+		</table>
+		</div>
+	</div>
+	<div class="taskWorkInfo">
+        <div class="title-bar">
+            <h3>巡检工单</h3>
+        </div>
+		
+		       <table class="" id = "taskItems">
+			<tr>
+				<td class="item">序号</td>
+				<td class="item">内容</td>
+				<td class="item">是否异常</td>
+			</tr>
+           </table>
+	</div>
+	<div class="problem">
+	    <div class="title-bar">
+            <h3>问题描述</h3>
+        </div>
+		 <div>
+		<textarea class="problem-description" id = "probDesc" onFocus=this.blur() style="margin-top:30px; ">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</textarea>
+		 </div>
+	</div>
+	<div class="suggestion">
+	    <div class="title-bar">
+            <h3>提出意见</h3>
+        </div>
+		<div>
+		<textarea id = "advDesc" class="suggestion-description" style="margin-top:30px; margin-bottom:200px; ">填写管理意见，并通过通知公告发送给各个部门</textarea>
+		</div>
+	</div>
+	<div>
+		<button onclick="savaverify()"> 保存</button>
+		<div>
+</div>
+	<script src="../public/js/sslAlert1.0.js"></script>
+	<script src="../public/js/patrolTask/patrolTask.js"></script>
+	<script src="../public/js/public.js"></script>
+	<script>
+		    //
+			//$(document).ready(function(){
+				//getTaskInfo(32);
+            //getTaskInfo(taskCode);
+            //console.log(GetQueryString("pointCode"));
+			//getImage(taskCode);
+			//getTaskItems(taskCode);
+                                 //  });
+        $(document).ready(function(){
+		var taskCode = GetQueryString("taskCode");
+	    getTaskInfo(taskCode);
+		getImage(taskCode);
+		//getTaskItems(taskCode);
+       });
+        function GetQueryString(name)
+        {
+           var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+           var r = window.location.search.substr(1).match(reg);
+           if(r!=null)return  unescape(r[2]); return null;
+        }
+    </script>
+
+</body>
+</html>

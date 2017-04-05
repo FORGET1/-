@@ -1,0 +1,73 @@
+﻿﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>添加应急救援库信息</title>
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_z741tdpn6rum1jor.css">
+    <link rel="stylesheet" href="../public/css/public.css">
+    <link rel="stylesheet" href="../public/css/sslAlert1.0.css">
+    <script src="../public/js/jquery-3.2.0.min.js"></script>
+    <script src="../public/js/public.js"></script>
+    <script src="../public/js/emergencyRescue/emergencyRescue.js"></script>
+    <script src="../public/js/sslAlert1.0.js"></script>
+<style>
+
+    .iframe-ct .information{
+        width: 900px;
+        margin: 30px 0;
+        margin-left: 85px;
+    }
+    .iframe-ct .information>ul>li{
+        float: left;
+        margin-right: 30px;
+        margin-bottom: 20px;
+    }
+    .iframe-ct .information>ul>li>label{
+        margin-right: 10px;
+    }
+    .iframe-ct .information>.form-button{
+        text-align: center;
+        margin-left: -85px;
+    }
+    .iframe-ct .information>.form-button>button{
+        margin: 0 15px;
+    }
+	.long{
+	    width:805px;
+	}
+</style>
+</head>
+<body>
+    <div class="iframe-ct">
+        <div class="title-bar">
+            <h3>添加应急救援库信息</h3>
+        </div>
+            <form action="" class="information clearfix">
+                <ul class="clearfix">
+                    <li>
+                        <label for="resecue-name">名称</label>
+                        <input type="text" class="medium" id="rescue-name">
+                    </li>
+					 <li>
+                        <label for="resecue-phone">电话</label>
+                        <input type="text" class="medium" id="rescue-phone">
+                    </li>
+                    <li>
+                        <label for="resecue-mail">邮箱</label>
+                        <input type="text"  class="medium" id="rescue-email">
+                    </li>     
+                    <li>
+                        <label for="resecue-address">地址</label>
+                        <input type="text" class="long" id="rescue-address">
+                    </li>
+                </ul>
+                <div class="form-button">
+                    <button class="">返回</button>
+                    <button class="blue-btn save-btn" type = "button" onclick="addRescue()">保存</button>
+                </div>
+            </form>
+    </div>
+</body>
+</html>

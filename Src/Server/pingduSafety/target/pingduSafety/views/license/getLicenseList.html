@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>证照管理</title>
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_aaebiml8x5b138fr.css">
+    <link rel="stylesheet" href="../public/css/public.css">
+    <script src="../public/js/jquery-3.2.0.min.js"></script>
+<style>
+    .iframe-ct{
+        position: relative;
+        /*height: 830px;*/
+    }
+    /*.delete-dialog-ct{
+        display: none;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.7);
+        position: absolute;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+    }
+    .delete-dialog-ct>.dialog{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-left: -150px;
+        margin-top: -60px;
+        background-color: white;
+        border: 1px solid silver;
+        border-radius: 5px;
+        width: 300px;
+        height: 120px;
+    }
+    .delete-dialog-ct>.dialog>.title-bar{
+        margin: 0;
+    }
+    .delete-dialog-ct>.dialog>.dialog-btn{
+        margin-top: 30px;
+        text-align: center;
+    }
+    .delete-dialog-ct>.dialog>.dialog-btn>button{
+        margin: 0 10px;
+    }*/
+    .table-button{
+        margin-bottom: 30px;
+    }
+</style>
+</head>
+<body>
+    <div class="iframe-ct">
+        <div class="title-bar">
+            <h3>证照管理</h3>
+            <span class="">
+                <i class="iconfont icon-search"></i>
+                <div class="search-panel">
+                    <form action="">
+                        <label for="">关键词</label><br>
+                        <input type="text" id="keyword"><br>
+                        <label for="search-type">按照</label><br>
+                        <select name="search-type" id="search-type" class="">
+                            <option value="title">通知标题</option>
+                            <option value="sender">发送者</option>
+                            <option value="receiver">接收者</option>
+                        </select><br>
+                        <button>查询</button>
+                    </form>
+                </div>
+            </span>
+            <span class="license-type">证照类型</span>
+        </div>
+        <div class="company">
+            <table>
+                <thead>
+                    <tr>
+                        <td>序号</td>
+                        <td>证照名称</td>
+                        <td>上传日期</td>
+                        <td>有效日期</td>
+                        <td>是否过期</td>
+                        <td>操作</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10</td>
+                        <td>2017-10-10</td>
+                        <td>未过期</td>
+                        <td>
+                            <button class="view-btn">查看</button>
+                            <button class="delete-btn">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10</td>
+                        <td>2017-10-10</td>
+                        <td>未过期</td>
+                        <td>
+                            <button class="view-btn">查看</button>
+                            <button class="delete-btn">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10</td>
+                        <td>2017-10-10</td>
+                        <td>未过期</td>
+                        <td>
+                            <button class="view-btn">查看</button>
+                            <button class="delete-btn">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10</td>
+                        <td>2017-10-10</td>
+                        <td>未过期</td>
+                        <td>
+                            <button class="view-btn">查看</button>
+                            <button class="delete-btn">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10</td>
+                        <td>2017-10-10</td>
+                        <td>未过期</td>
+                        <td>
+                            <button class="view-btn">查看</button>
+                            <button class="delete-btn">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10</td>
+                        <td>2017-10-10</td>
+                        <td>未过期</td>
+                        <td>
+                            <button class="view-btn">查看</button>
+                            <button class="delete-btn">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10</td>
+                        <td>2017-10-10</td>
+                        <td>未过期</td>
+                        <td>
+                            <button class="view-btn">查看</button>
+                            <button class="delete-btn">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10</td>
+                        <td>2017-10-10</td>
+                        <td>未过期</td>
+                        <td>
+                            <button class="view-btn">查看</button>
+                            <button class="delete-btn">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10</td>
+                        <td>2017-10-10</td>
+                        <td>未过期</td>
+                        <td>
+                            <button class="view-btn">查看</button>
+                            <button class="delete-btn">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10</td>
+                        <td>2017-10-10</td>
+                        <td>未过期</td>
+                        <td>
+                            <button class="view-btn">查看</button>
+                            <button class="delete-btn">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10</td>
+                        <td>2017-10-10</td>
+                        <td>未过期</td>
+                        <td>
+                            <button class="view-btn">查看</button>
+                            <button class="delete-btn">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10</td>
+                        <td>2017-10-10</td>
+                        <td>未过期</td>
+                        <td>
+                            <button class="view-btn">查看</button>
+                            <button class="delete-btn">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10</td>
+                        <td>2017-10-10</td>
+                        <td>未过期</td>
+                        <td>
+                            <button class="view-btn">查看</button>
+                            <button class="delete-btn">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10</td>
+                        <td>2017-10-10</td>
+                        <td>未过期</td>
+                        <td>
+                            <button class="view-btn">查看</button>
+                            <button class="delete-btn">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10</td>
+                        <td>2017-10-10</td>
+                        <td>未过期</td>
+                        <td>
+                            <button class="view-btn">查看</button>
+                            <button class="delete-btn">删除</button>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                    </tr>
+                </tfoot>
+            </table>
+            <div class="table-button">
+                <button class="">上一页</button>
+                <button class="">下一页</button>
+                <span>1 / 2</span>
+                <button class="">首页</button>
+                <button class="">尾页</button>
+            </div>
+        </div>
+        <!--<div class="delete-dialog-ct">
+            <div class="dialog">
+                <div class="title-bar">
+                    <h3>删除通知</h3>
+                </div>
+                <div class="dialog-btn">
+                    <button class="cancel-btn">取消</button>
+                    <button class="delete-btn blue-btn">删除</button>
+                </div>
+            </div>
+        </div>-->
+    </div>
+</body>
+<script>
+    var $licenseType = $('.title-bar .license-type'),
+        $iframe = $('#iframe'),
+        $contentDiv = $('.content'),
+        $viewBtns = $('.company .view-btn'),
+        $deleteDialog = $('.delete-dialog-ct'),
+        $deleteDialogCancelBtn = $('.delete-dialog-ct .cancel-btn'),
+        $deleteBtn = $('.company .delete-btn'),
+        $navCompany = $('.navbar .nav-company');
+    $licenseType.on('click',function(){
+        window.parent.jump('views/license/licenseType.html');
+    })
+    $viewBtns.on('click',function(){
+        
+    })
+    $deleteBtn.on('click',function(){
+        // $deleteDialog.show();
+        window.parent.showDeleteDialog(function(){
+            console.log(1);
+        });
+    })
+
+</script>
+</html>

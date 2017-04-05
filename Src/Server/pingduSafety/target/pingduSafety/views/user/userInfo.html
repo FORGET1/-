@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <link rel="stylesheet" href="../public/css/public.css">
+    
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_aaebiml8x5b138fr.css">
+    <script src="../public/js/jquery-3.2.0.min.js"></script>
+<style>
+    .iframe-ct{
+        height: 1000px;
+    }
+    .iframe-ct .information{
+        width: 900px;
+        margin: 30px 0;
+        margin-left: 85px;
+    }
+    .iframe-ct .information>ul>li{
+        float: left;
+        margin-right: 30px;
+        margin-bottom: 20px;
+    }
+    .iframe-ct .information>ul>li>label{
+        margin-right: 10px;
+    }
+    .iframe-ct .information>.form-button{
+        text-align: center;
+        margin-left: -85px;
+    }
+    .iframe-ct .information>.form-button>button{
+        margin: 0 15px;
+    }
+    
+</style>
+</head>
+<body>
+    <div class="iframe-ct">
+        <div class="title-bar">
+            <div class="title-bar">
+            <h3>用户信息</h3>
+            </div>
+        </div>
+            <form action="" class="information clearfix">
+                <table>
+               	<tbody>
+               		<tr>
+               			<td>
+               				<label for="user-name">用户编号</label>
+                        	<input type="text" class="medium" id="user-code">
+                        </td>
+                        <td>
+                        	<label for="user-name">用户名称</label>
+                        	<input type="text" class="medium" id="user-name">
+                        </td>
+               		</tr>
+               		<tr>
+               			<td>
+               				<label for="management">管辖部门</label>
+               				<input type="text" class="medium" id="user-manage">
+	                       	
+               			</td>
+               			<td>
+               				<label for="user-id">身份证</label>
+                        	<input type="text" class="medium" id="user-id">
+                        </td>
+               		</tr>
+               			<tr>
+               				<td>
+               					<label for="user-sex">性别</label>
+               					<input id="user-sex" type="text" class="medium">
+		                        
+               				</td>
+               				<td>
+               					<label for="user-birth">生日</label>
+                        		<input type="text" class="medium" id="user-birth">
+               				</td>
+               			</tr>
+               			<tr>
+               				<!-- <td>
+               					<label for="user-birth">密码</label>
+                        		<input type="password" class="medium" id="user-pwd">
+               				</td> -->
+               				<td>
+               					<label for="user-phone">电话</label>
+                       			 <input type="text" class="medium" id="user-phone">
+               				</td>
+               			</tr>
+               		</tbody>
+               </table> 
+                <div class="form-button">
+                    <button type="button" class="" onclick="javascript:history.go(-1);">返回</button>
+                    
+                </div>
+            </form>
+       
+    </div>
+   <script type="text/javascript" src="../public/js/public.js" ></script>
+   <script type="text/javascript" src="../public/js/user/user.js"></script>
+   <script type="text/javascript">
+       $(document).ready(function(){
+            $("input").attr("readOnly","readOnly");
+            var url = location.href; 
+            var userCode = url.split("?")[1].split("=")[1]
+            getUserInfo(userCode);
+       });
+   </script>
+    
+</body>
+</html>

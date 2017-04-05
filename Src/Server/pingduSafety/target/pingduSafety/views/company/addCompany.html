@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>添加企业信息</title>
+    <link rel="stylesheet" href="../public/css/public.css">
+    <script src="../public/js/jquery-3.2.0.min.js"></script>
+<style>
+    .iframe-ct{
+        /*height: 1000px;*/
+    }
+    .iframe-ct .information{
+        width: 900px;
+        margin: 30px 0;
+        margin-left: 85px;
+    }
+    .iframe-ct .information>ul>li{
+        float: left;
+        margin-right: 30px;
+        margin-bottom: 20px;
+    }
+    .iframe-ct .information>ul>li>label{
+        margin-right: 10px;
+    }
+    .iframe-ct .information>.form-button{
+        text-align: center;
+        margin-left: -85px;
+    }
+    .iframe-ct .information>.form-button>button{
+        margin: 0 15px;
+    }
+</style>
+</head>
+<body>
+    <div class="iframe-ct">
+        <div class="title-bar">
+            <h3>修改企业信息</h3>
+        </div>
+            <form action="" class="information clearfix">
+                <ul class="clearfix">
+                    <li>
+                        <label for="company-name">企业名称</label>
+                        <input type="text" class="medium" id="company-name">
+                    </li>
+                    <li>
+                        <label for="company-type">企业类型</label>
+                        <select name="company-type" id="company-type" class="short">
+                            <option value="gas-station">加油站</option>
+                            <option value="chemical-plant">化工厂</option>
+                        </select>
+                    </li>
+                    <li>
+                        <label for="management-department">管辖部门</label>
+                        <select name="management-department" id="management-department" class="medium">
+                            <option value="office1">安监办1</option>
+                            <option value="office2">安监办2</option>
+                        </select>
+                    </li>
+                    <li>
+                        <label for="legal-representative">法人代表</label>
+                        <input type="text" class="short" id="legal-representative">
+                    </li>
+                    <li>
+                        <label for="business-phone">企业电话</label>
+                        <input type="text" class="medium" id="business-phone">
+                    </li>
+                    <li>
+                        <label for="contact-number">联系电话</label>
+                        <input type="text" class="medium" id="contact-number">
+                    </li>
+                    <li>
+                        <label for="address">企业地址</label>
+                        <input type="text" class="long" id="address">
+                    </li>
+                </ul>
+                <div class="form-button">
+                    <button class="">返回</button>
+                    <button class="blue-btn">保存</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

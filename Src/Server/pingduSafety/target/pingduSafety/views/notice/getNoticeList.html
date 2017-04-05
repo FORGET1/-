@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>通知管理</title>
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_aaebiml8x5b138fr.css">
+    <link rel="stylesheet" href="../public/css/public.css">
+    <script src="../public/js/jquery-3.2.0.min.js"></script>
+<style>
+    .iframe-ct{
+        position: relative;
+    }
+    .title-bar .tab-panel{
+        display: inline-block;
+        margin-left: 20px;
+    }
+    .title-bar .tab-panel>div{
+        border-radius: 5px 5px 0 0;
+        position: relative;
+        bottom: -5px;
+        cursor: pointer;
+        display: inline-block;
+        line-height: 24px;
+        padding: 0 20px;
+    }
+    .title-bar .tab-panel>.current{
+        background-color: white;
+    }
+    .title-bar .tab-panel>div>i{
+        font-size: 20px;
+    }
+
+    .title-bar .tab-panel>div:first-child i{
+        position: relative;
+        top: 2px;
+        font-size: 22px;
+    }
+</style>
+</head>
+<body>
+    <div class="iframe-ct">
+        <div class="title-bar">
+            <h3>通告管理</h3>
+            <span class="">
+                <i class="iconfont icon-search"></i>
+                <div class="search-panel">
+                    <form action="">
+                        <label for="">关键词</label><br>
+                        <input type="text" id="keyword"><br>
+                        <label for="search-type">按照</label><br>
+                        <select name="search-type" id="search-type" class="">
+                            <option value="title">通知标题</option>
+                            <option value="sender">发送人</option>
+                            <option value="receiver">接收人</option>
+                        </select><br>
+                        <button class="search-btn">查询</button>
+                    </form>
+                </div>
+            </span>
+            <div class="tab-panel">
+                <div class="tab-receive current">
+                    <i class="iconfont icon-wenjianjieshou"></i>
+                    <span>接收</span>
+                </div>
+                <div class="tab-send">
+                    <i class="iconfont icon-fasong"></i>
+                    <span>发出</span>
+                </div>
+            </div>
+            <span class="add-notice">+新建公告</span>
+        </div>
+
+        <div class="notice">
+            <table>
+                <thead>
+                    <tr>
+                        <td>序号</td>
+                        <td>标题</td>
+                        <td>发布时间</td>
+                        <td>发送人</td>
+                        <td>接收人</td>
+                        <td>已读</td>
+                        <td>操作</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--<tr>
+                        <td>1</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10 8:00</td>
+                        <td>安监局</td>
+                        <td>安监办</td>
+                        <td>3</td>
+                        <td>
+                            <button class="view-btn">查看</button>
+                            <button class="delete-btn">删除</button>
+                            <button class="forwarding-btn">转发</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10 8:00</td>
+                        <td>安监局</td>
+                        <td>安监办</td>
+                        <td>3</td>
+                        <td>
+                            <button class="view-btn">查看</button>
+                            <button class="delete-btn">删除</button>
+                            <button class="forwarding-btn">转发</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10 8:00</td>
+                        <td>安监局</td>
+                        <td>安监办</td>
+                        <td>3</td>
+                        <td>
+                            <button class="view-btn">查看</button>
+                            <button class="delete-btn">删除</button>
+                            <button class="forwarding-btn">转发</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10 8:00</td>
+                        <td>安监局</td>
+                        <td>安监办</td>
+                        <td>3</td>
+                        <td>
+                            <button class="view-btn">查看</button>
+                            <button class="delete-btn">删除</button>
+                            <button class="forwarding-btn">转发</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10 8:00</td>
+                        <td>安监局</td>
+                        <td>安监办</td>
+                        <td>3</td>
+                        <td>
+                            <button class="view-btn">查看</button>
+                            <button class="delete-btn">删除</button>
+                            <button class="forwarding-btn">转发</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10 8:00</td>
+                        <td>安监局</td>
+                        <td>安监办</td>
+                        <td>3</td>
+                        <td>
+                            <button class="view-btn">查看</button>
+                            <button class="delete-btn">删除</button>
+                            <button class="forwarding-btn">转发</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10 8:00</td>
+                        <td>安监局</td>
+                        <td>安监办</td>
+                        <td>3</td>
+                        <td>
+                            <button class="view-btn">查看</button>
+                            <button class="delete-btn">删除</button>
+                            <button class="forwarding-btn">转发</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10 8:00</td>
+                        <td>安监局</td>
+                        <td>安监办</td>
+                        <td>3</td>
+                        <td>
+                            <button class="view-btn">查看</button>
+                            <button class="delete-btn">删除</button>
+                            <button class="forwarding-btn">转发</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10 8:00</td>
+                        <td>安监局</td>
+                        <td>安监办</td>
+                        <td>3</td>
+                        <td>
+                            <button class="view-btn">查看</button>
+                            <button class="delete-btn">删除</button>
+                            <button class="forwarding-btn">转发</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10 8:00</td>
+                        <td>安监局</td>
+                        <td>安监办</td>
+                        <td>3</td>
+                        <td>
+                            <button class="view-btn">查看</button>
+                            <button class="delete-btn">删除</button>
+                            <button class="forwarding-btn">转发</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10 8:00</td>
+                        <td>安监局</td>
+                        <td>安监办</td>
+                        <td>3</td>
+                        <td>
+                            <button class="view-btn">查看</button>
+                            <button class="delete-btn">删除</button>
+                            <button class="forwarding-btn">转发</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10 8:00</td>
+                        <td>安监局</td>
+                        <td>安监办</td>
+                        <td>3</td>
+                        <td>
+                            <button class="view-btn">查看</button>
+                            <button class="delete-btn">删除</button>
+                            <button class="forwarding-btn">转发</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10 8:00</td>
+                        <td>安监局</td>
+                        <td>安监办</td>
+                        <td>3</td>
+                        <td>
+                            <button class="view-btn">查看</button>
+                            <button class="delete-btn">删除</button>
+                            <button class="forwarding-btn">转发</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10 8:00</td>
+                        <td>安监局</td>
+                        <td>安监办</td>
+                        <td>3</td>
+                        <td>
+                            <button class="view-btn">查看</button>
+                            <button class="delete-btn">删除</button>
+                            <button class="forwarding-btn">转发</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10 8:00</td>
+                        <td>安监局</td>
+                        <td>安监办</td>
+                        <td>3</td>
+                        <td>
+                            <button class="view-btn">查看</button>
+                            <button class="delete-btn">删除</button>
+                            <button class="forwarding-btn">转发</button>
+                        </td>
+                    </tr>-->
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                    </tr>
+                </tfoot>
+            </table>
+            <div class="table-button">
+                <button class="previous-page">上一页</button>
+                <button class="next-page">下一页</button>
+                <span class="page-number">1 / 2</span>
+                <button class="first-page">首页</button>
+                <button class="last-page">尾页</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    var $addNotice = $('.title-bar .add-notice'),
+        $iframe = $('#iframe'),
+        $contentDiv = $('.content'),
+        $tabPanel = $('.tab-panel'),
+        $pageNumberSpan = $('.notice .page-number'),
+        $previousPageBtn = $('.notice .previous-page'),
+        $nextPageBtn = $('.notice .next-page'),
+        $lastPageBtn = $('.notice .last-page'),
+        $firstPageBtn = $('.notice .first-page'),
+        $noticeTbody = $('.notice>table>tbody'),
+        currentPage,
+        lastPage,
+        $searchKeyword = $('#keyword'),
+        $searchType = $('#search-type'),
+        $searchBtn = $('.search-panel .search-btn');
+
+    getReceivedNotice(1);
+
+
+    $addNotice.on('click',function(){
+        window.parent.jump('views/notice/addNotice.html');
+    })
+
+// 添加通知
+    $tabPanel.on('click','div',function(){
+        $(this).parent().find('div').removeClass('current');
+        $(this).addClass('current');
+    })
+
+    $tabPanel.find('.tab-receive').on('click',function(){
+        getReceivedNotice(1);
+    })
+
+// tab切换
+
+    $searchBtn.on('click',function(){
+        console.log($searchType.val());
+        event.preventDefault();
+        if($searchKeyword.val()){
+            searchNotice($searchKeyword.val(),$searchType.val(),1);
+        }
+    })
+
+
+// 搜索
+    function searchNotice(keyword,type,page){
+        $.get('/searchNotice',{page:keyword,type:type,page:1}).done(function(result){
+            importList(result.notice,'search');
+            currentPage = result.page;
+            lastPage = result.lastPage;
+            $pageNumberSpan.text(result.page + '/' + result.lastPage);
+        })
+    }
+
+    function getReceivedNotice(page){
+        $.get('/getReceivedNotice',{page:page,userID:1}).done(function(result){
+            console.log(result);
+            importList(result.notice,'get');
+            currentPage = result.page;
+            lastPage = result.lastPage;
+            $pageNumberSpan.text(result.page + '/' + result.lastPage);
+        })
+    }
+
+    function importList(dataArr,bindType){
+        $noticeTbody.empty();
+        $(dataArr).each(function(i){
+            var $tr = $(
+                '<tr><td>'+
+                    '<button class="view-btn">查看</button>&nbsp'+
+                    '<button class="delete-btn">删除</button>&nbsp'+
+                    '<button class="forwarding-btn">转发</button>'+
+                '</td></tr>'
+            );
+            $tr.prepend($('<td>'+dataArr[i].readNum+'</td>'));
+            $tr.prepend($('<td>'+dataArr[i].recipient+'</td>'));
+            $tr.prepend($('<td>'+dataArr[i].sender+'</td>'));
+            $tr.prepend($('<td>'+dataArr[i].time+'</td>'));
+            $tr.prepend($('<td>'+dataArr[i].title+'</td>'));
+            $tr.prepend($('<td>'+(i+1)+'</td>'));
+            $tr.data('noticeCode',dataArr[i].noticeCode);
+            $noticeTbody.append($tr);
+        })
+        bindListBtns();
+        bindPageBtns(bindType);
+        window.parent.adjustHeight();
+    }
+    function bindListBtns(){
+        var $viewBtns = $('.notice .view-btn'),
+            $deleteBtn = $('.notice .delete-btn'),
+            $forwardingBtn = $('.notice .forwarding-btn');
+        $viewBtns.on('click',function(){
+            window.parent.jumpCommand = $(this).parents('tr').data('noticeCode');
+            window.parent.jump('views/notice/noticeInfo.html');
+        })
+        $deleteBtn.on('click',function(){
+            window.parent.showDialog('删除',function(){
+                console.log(1);
+            });
+        })
+        $forwardingBtn.on('click',function(){
+            window.parent.jumpCommand = $(this).parents('tr').data('noticeCode');
+            window.parent.jump('views/notice/forwardingNotice.html');
+        })
+    }
+    function bindPageBtns(type){
+        switch(type){
+            case 'get':
+                $previousPageBtn.on('click',function(){
+                    if(currentPage > 1 || lastPage >1){
+                        getReceivedNotice(currentPage-1);
+                    }
+                })
+                $nextPageBtn.on('click',function(){
+                    if(currentPage < lastPage){
+                        getReceivedNotice(currentPage+1);
+                    }
+                })
+                $firstPageBtn.on('click',function(){
+                    if(currentPage > 1 || lastPage >1){
+                        getReceivedNotice(1);
+                    }
+                })
+                $lastPageBtn.on('click',function(){
+                    if(currentPage < lastPage || lastPage >1){
+                        getReceivedNotice(lastPage);
+                    }
+                })
+                break;
+            case 'search':
+                $previousPageBtn.on('click',function(){
+                    if(currentPage > 1 || lastPage >1){
+                        searchNotice($searchKeyword.val(),$searchType.val(),currentPage-1);
+                    }
+                })
+                $nextPageBtn.on('click',function(){
+                    if(currentPage < lastPage){
+                        searchNotice($searchKeyword.val(),$searchType.val(),currentPage+1);
+
+                    }
+                })
+                $firstPageBtn.on('click',function(){
+                    if(currentPage > 1 || lastPage >1){
+                        searchNotice($searchKeyword.val(),$searchType.val(),1);
+                    }
+                })
+                $lastPageBtn.on('click',function(){
+                    if(currentPage < lastPage || lastPage >1){
+                        searchNotice($searchKeyword.val(),$searchType.val(),lastPage);
+                    }
+                })
+                break;
+        }
+    }
+</script>
+</html>

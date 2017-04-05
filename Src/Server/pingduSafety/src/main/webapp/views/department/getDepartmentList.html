@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>部门列表</title>
+    <link rel="stylesheet" href="../public/css/public.css">
+ 
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_aaebiml8x5b138fr.css">
+    <script src="../public/js/jquery-3.2.0.min.js"></script>
+<style>
+    .iframe-ct{
+        /*height: 1000px;*/
+    }
+    .iframe-ct .information{
+        width: 900px;
+        margin: 30px 0;
+        margin-left: 85px;
+    }
+    .iframe-ct .information>ul>li{
+        float: left;
+        margin-right: 30px;
+        margin-bottom: 20px;
+    }
+    .iframe-ct .information>ul>li>label{
+        margin-right: 10px;
+    }
+    .iframe-ct .information>.form-button{
+        text-align: center;
+        margin-left: -85px;
+    }
+    .iframe-ct .information>.form-button>button{
+        margin: 0 15px;
+    }
+  
+</style>
+</head>
+<body>
+    <div class="iframe-ct">
+        <div class="title-bar">
+            <div class="title-bar">
+            <h3>部门管理</h3>
+            <span class="">
+                <i class="iconfont icon-search"></i>
+                <div class="search-panel">
+                    <form action="">
+                        <label for="">关键词</label><br />
+                        <input type="text" id="keyword"><br />
+                        <label for="search-type">按照</label><br />
+                        <select name="search-type" id="search-type" class="">
+                            <option >部门名称</option>
+                            <option >部门电话</option>
+                            
+                        </select><br/>
+                        <button type="button" onclick="search(1)">查询</button>
+                    </form>
+                </div>
+            </span>
+            <span class="create-message" onclick="showAddDept()">+新建部门</span>
+            </div>
+        </div>
+        <div class="license">
+            
+            <table id="list-table">
+                <thead>
+                    <tr>
+                        <td>序号</td>
+                        <td>部门名称</td>
+                        <td>部门电话</td>
+                        
+                        <td>操作</td>
+                    </tr>
+                </thead>
+                <tbody>
+                   
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                </tfoot>
+            </table>
+            <div class="table-button">
+                <button class="" id="up-btn">上一页</button>
+                <span id="page"></span><span>/</span><span id="lastpage"></span>
+                <button class="" id="down-btn">下一页</button>
+            </div>
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="../public/js/public.js"></script>
+   <script type="text/javascript" src="../public/js/department/department.js"></script> 
+   <script type="text/javascript">
+      $(document).ready(function(){
+            getDeptList(1);
+            $("#list-table input").on("focus",function(){
+            	$("#list-table input").css({
+                    "border-color":"black",
+                    "border-style":"inset",
+                    "border-width":"1px"
+               		 });
+            });
+      });
+   </script>
+</body>
+</html>

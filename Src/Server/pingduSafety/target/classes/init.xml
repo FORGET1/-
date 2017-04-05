@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:aop="http://www.springframework.org/schema/aop" 
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd "
+        >
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/byht?useUnicode=true&amp;characterEncoding=UTF-8" />
+		<property name="username" value="root" />
+		<property name="password" value="123456" />
+	</bean>
+<!--	 <bean id="dataSource"-->
+<!--	  class="org.springframework.jdbc.datasource.DriverManagerDataSource">-->
+<!--	  <property name="driverClassName" value="com.mysql.jdbc.Driver" />-->
+<!--	  <property name="url"-->
+<!--	   value="jdbc:mysql://192.168.16.127/ffs4all" />-->
+<!--	  <property name="username" value="root" />-->
+<!--	  <property name="password" value="123abc!" />-->
+<!--	 </bean>-->
+<!--  	<bean id="dataSource"  -->
+<!--  		class="org.springframework.jdbc.datasource.DriverManagerDataSource">  -->
+<!--  		<property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />  -->
+<!--  		<property name="url"  -->
+<!--  			value="jdbc:sqlserver://localhost:1433;databaseName=wake" />  -->
+<!--  		<property name="username" value="sa" />  -->
+<!--  		<property name="password" value="123abc!" />  -->
+<!--  	</bean>  -->
+
+<!-- 	<bean id="dataSource" -->
+<!-- 		class="org.springframework.jdbc.datasource.DriverManagerDataSource"> -->
+<!-- 		<property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" /> -->
+<!-- 		<property name="url" -->
+<!-- 			value="jdbc:sqlserver://192.168.16.177:1433;;databaseName=wake" /> -->
+<!-- 		<property name="username" value="sa" /> -->
+<!-- 		<property name="password" value="123abc!" /> -->
+<!-- 	</bean> -->
+
+	<bean id="businessEntityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="persistenceXmlLocation" value="classpath*:META-INF/persistence.xml" />
+		<property name="persistenceUnitName" value="byht" />
+		<property name="dataSource" ref="dataSource" />
+		<property name="jpaVendorAdapter" ref="jpaAdapter" />
+		<property name="jpaDialect" ref="jpaDialect" />
+		<property name="loadTimeWeaver">
+			<bean class="org.springframework.instrument.classloading.InstrumentationLoadTimeWeaver" />
+		</property>
+
+		<property name="jpaProperties">
+			<props>
+				<prop key="eclipselink.show_sql">true</prop>
+				<prop key="eclipselink.logging.parameters">true</prop>
+				<prop key="eclipselink.logging.level">FINE</prop>
+				<prop key="eclipselink.logging.level.sql">FINE</prop>
+
+				<prop key="eclipselink.weaving">static</prop>
+				<prop key="eclipselink.orm.throw.exceptions">true</prop>
+
+				<!-- 生成数据库相关参数 -->
+				<prop key="eclipselink.application-location">d:\</prop>
+				<prop key="eclipselink.create-ddl-jdbc-file-name">create.sql</prop>
+				<prop key="eclipselink.drop-ddl-jdbc-file-name">drop.sql</prop>
+				<prop key="eclipselink.ddl-generation">drop-and-create-tables</prop>
+<!-- 				<prop key="eclipselink.ddl-generation.output-mode">both</prop> -->
+				<prop key="eclipselink.ddl-generation.output-mode">sql-script</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- 目标数据库类型 -->
+	<bean id="jpaAdapter" class="org.springframework.orm.jpa.vendor.EclipseLinkJpaVendorAdapter">
+		<property name="databasePlatform" value="org.eclipse.persistence.platform.database.MySQLPlatform"/> 
+<!-- 		<property name="databasePlatform" value="org.eclipse.persistence.platform.database.SQLServerPlatform"/> -->
+<!-- 		<property name="databasePlatform" value="org.eclipse.persistence.platform.database.oracle.Oracle11Platform" /> -->
+	</bean>
+	<bean id="jpaDialect" class="org.springframework.orm.jpa.vendor.EclipseLinkJpaDialect" />
+
+</beans>

@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>证照管理</title>
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_aaebiml8x5b138fr.css">
+    <link rel="stylesheet" href="views/public/css/public.css">
+    <script src="views/public/js/jquery-3.2.0.min.js"></script>
+<style>
+    .iframe-ct{
+        position: relative;
+        height: 830px;
+    }
+    .delete-dialog-ct{
+        display: none;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.7);
+        position: absolute;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+    }
+    .delete-dialog-ct>.dialog{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-left: -150px;
+        margin-top: -60px;
+        background-color: white;
+        border: 1px solid silver;
+        border-radius: 5px;
+        width: 300px;
+        height: 120px;
+    }
+    .delete-dialog-ct>.dialog>.title-bar{
+        margin: 0;
+    }
+    .delete-dialog-ct>.dialog>.dialog-btn{
+        margin-top: 30px;
+        text-align: center;
+    }
+    .delete-dialog-ct>.dialog>.dialog-btn>button{
+        margin: 0 10px;
+    }
+    /*.dialog-ct{
+        display: none;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.7);
+        position: absolute;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+    }
+    .dialog-ct>.dialog{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-left: -250px;
+        margin-top: -150px;
+        background-color: white;
+        border: 1px solid silver;
+        border-radius: 5px;
+        width: 500px;
+        height: 300px;
+    }
+    .dialog-ct>.dialog>.table-ct{
+        width: 100%;
+        height: 270px;
+        overflow: overlay;
+    }
+    .dialog-ct>.dialog>.table-ct>table{
+        width: 80%;
+        margin-top: 5px;
+        position: relative;
+    }
+    .dialog-ct>.dialog>.dialog-title{
+        width: 100%;
+        height: 28px;
+        background-image: linear-gradient(to bottom,#f2f2f2,#cccccc);
+        box-shadow: 0px 1px 1px silver;
+        text-align: center;
+    }
+    .dialog-ct>.dialog>.dialog-title>h3{
+        font-size: 16px;
+        line-height: 28px;
+    }
+    .dialog-ct>.dialog>.dialog-title>span{
+        font-size: 25px;
+        position: absolute;
+        right: 20px;
+        top: -4px;
+        font-weight: 500;
+        cursor: pointer;
+    }*/
+    .title-bar .tab-panel{
+        display: inline-block;
+        margin-left: 20px;
+    }
+    .title-bar .tab-panel>div{
+        border-radius: 5px 5px 0 0;
+        position: relative;
+        bottom: -5px;
+        cursor: pointer;
+        display: inline-block;
+        line-height: 24px;
+        padding: 0 20px;
+    }
+    .title-bar .tab-panel>.current{
+        background-color: white;
+    }
+    .title-bar .tab-panel>div>i{
+        font-size: 20px;
+    }
+    
+    .title-bar .tab-panel>div:first-child i{
+        position: relative;
+        top: 2px;
+        font-size: 22px;
+    }
+</style>
+</head>
+<body>
+    <div class="iframe-ct">
+        <div class="title-bar">
+            <h3>通告管理</h3>
+            <span class="">
+                <i class="iconfont icon-search"></i>
+                <div class="search-panel">
+                    <form action="">
+                        <label for="">关键词</label><br>
+                        <input type="text" id="keyword"><br>
+                        <label for="search-type">按照</label><br>
+                        <select name="search-type" id="search-type" class="">
+                            <option value="title">通知标题</option>
+                            <option value="sender">发送者</option>
+                            <option value="receiver">接收者</option>
+                        </select><br>
+                        <button>查询</button>
+                    </form>
+                </div>
+            </span>
+            <div class="tab-panel">
+                <div class="tab-receive current">
+                    <i class="iconfont icon-wenjianjieshou"></i>
+                    <span>接收</span>
+                </div>
+                <div class="tab-send">
+                    <i class="iconfont icon-fasong"></i>
+                    <span>发出</span>
+                </div>
+            </div>
+            <span class="create-message">+新建公告</span>
+        </div>
+
+        <div class="message">
+            <table>
+                <thead>
+                    <tr>
+                        <td>序号</td>
+                        <td>标题</td>
+                        <td>发布时间</td>
+                        <td>发送者</td>
+                        <td>接收者</td>
+                        <td>已读</td>
+                        <td>操作</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10 8:00</td>
+                        <td>安监局</td>
+                        <td>安监办</td>
+                        <td>3</td>
+                        <td>
+                            <button class="view-btn">查看</button>
+                            <button class="delete-btn">删除</button>
+                            <button class="forwarding-btn">转发</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10 8:00</td>
+                        <td>安监局</td>
+                        <td>安监办</td>
+                        <td>3</td>
+                        <td>
+                            <button class="view-btn">查看</button>
+                            <button class="delete-btn">删除</button>
+                            <button class="forwarding-btn">转发</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10 8:00</td>
+                        <td>安监局</td>
+                        <td>安监办</td>
+                        <td>3</td>
+                        <td>
+                            <button class="view-btn">查看</button>
+                            <button class="delete-btn">删除</button>
+                            <button class="forwarding-btn">转发</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10 8:00</td>
+                        <td>安监局</td>
+                        <td>安监办</td>
+                        <td>3</td>
+                        <td>
+                            <button class="view-btn">查看</button>
+                            <button class="delete-btn">删除</button>
+                            <button class="forwarding-btn">转发</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10 8:00</td>
+                        <td>安监局</td>
+                        <td>安监办</td>
+                        <td>3</td>
+                        <td>
+                            <button class="view-btn">查看</button>
+                            <button class="delete-btn">删除</button>
+                            <button class="forwarding-btn">转发</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10 8:00</td>
+                        <td>安监局</td>
+                        <td>安监办</td>
+                        <td>3</td>
+                        <td>
+                            <button class="view-btn">查看</button>
+                            <button class="delete-btn">删除</button>
+                            <button class="forwarding-btn">转发</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10 8:00</td>
+                        <td>安监局</td>
+                        <td>安监办</td>
+                        <td>3</td>
+                        <td>
+                            <button class="view-btn">查看</button>
+                            <button class="delete-btn">删除</button>
+                            <button class="forwarding-btn">转发</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10 8:00</td>
+                        <td>安监局</td>
+                        <td>安监办</td>
+                        <td>3</td>
+                        <td>
+                            <button class="view-btn">查看</button>
+                            <button class="delete-btn">删除</button>
+                            <button class="forwarding-btn">转发</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10 8:00</td>
+                        <td>安监局</td>
+                        <td>安监办</td>
+                        <td>3</td>
+                        <td>
+                            <button class="view-btn">查看</button>
+                            <button class="delete-btn">删除</button>
+                            <button class="forwarding-btn">转发</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10 8:00</td>
+                        <td>安监局</td>
+                        <td>安监办</td>
+                        <td>3</td>
+                        <td>
+                            <button class="view-btn">查看</button>
+                            <button class="delete-btn">删除</button>
+                            <button class="forwarding-btn">转发</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10 8:00</td>
+                        <td>安监局</td>
+                        <td>安监办</td>
+                        <td>3</td>
+                        <td>
+                            <button class="view-btn">查看</button>
+                            <button class="delete-btn">删除</button>
+                            <button class="forwarding-btn">转发</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10 8:00</td>
+                        <td>安监局</td>
+                        <td>安监办</td>
+                        <td>3</td>
+                        <td>
+                            <button class="view-btn">查看</button>
+                            <button class="delete-btn">删除</button>
+                            <button class="forwarding-btn">转发</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10 8:00</td>
+                        <td>安监局</td>
+                        <td>安监办</td>
+                        <td>3</td>
+                        <td>
+                            <button class="view-btn">查看</button>
+                            <button class="delete-btn">删除</button>
+                            <button class="forwarding-btn">转发</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10 8:00</td>
+                        <td>安监局</td>
+                        <td>安监办</td>
+                        <td>3</td>
+                        <td>
+                            <button class="view-btn">查看</button>
+                            <button class="delete-btn">删除</button>
+                            <button class="forwarding-btn">转发</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10 8:00</td>
+                        <td>安监局</td>
+                        <td>安监办</td>
+                        <td>3</td>
+                        <td>
+                            <button class="view-btn">查看</button>
+                            <button class="delete-btn">删除</button>
+                            <button class="forwarding-btn">转发</button>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                    </tr>
+                </tfoot>
+            </table>
+            <div class="table-button">
+                <button class="">上一页</button>
+                <button class="">下一页</button>
+                <span>1 / 2</span>
+                <button class="">首页</button>
+                <button class="">尾页</button>
+            </div>
+        </div>
+        <div class="delete-dialog-ct">
+            <div class="dialog">
+                <div class="title-bar">
+                    <h3>删除通知</h3>
+                </div>
+                <div class="dialog-btn">
+                    <button class="cancel-btn">取消</button>
+                    <button class="delete-btn blue-btn">删除</button>
+                </div>
+            </div>
+        </div>
+        <!--<div class="dialog-ct">
+            <div class="dialog">
+                <div class="dialog-title">
+                    <h3>xxxxx通知</h3>
+                    <span class="close">x</span>
+                </div>
+                <div class="table-ct">
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>序号</td>
+                                <td>接收人</td>
+                                <td>是否已读</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>xxxxxx</td>
+                                <td>是</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>xxxx</td>
+                                <td>是</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>xxxxxx</td>
+                                <td>否</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>xxxx</td>
+                                <td>否</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>xxxxxx</td>
+                                <td>否</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>xxxx</td>
+                                <td>否</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>xxxx</td>
+                                <td>否</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>xxxx</td>
+                                <td>否</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>xxxx</td>
+                                <td>否</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>xxxx</td>
+                                <td>否</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>-->
+    </div>
+</body>
+<script>
+    var $createMsg = $('.title-bar .create-message'),
+        $iframe = $('#iframe'),
+        $contentDiv = $('.content'),
+        $tabPanel = $('.tab-panel'),
+        $viewBtns = $('.message .view-btn'),
+        $deleteDialog = $('.delete-dialog-ct'),
+        $deleteDialogCancelBtn = $('.delete-dialog-ct .cancel-btn'),
+        $deleteBtn = $('.message .delete-btn'),
+        $forwardingBtn = $('.message .forwarding-btn'),
+        $navMessage = $('.navbar .nav-message'),
+        $navCompany = $('.navbar .nav-company');
+    $createMsg.on('click',function(){
+        window.parent.jump('message/createMessage.html');
+    })
+    $viewBtns.on('click',function(){
+        window.parent.jump('message/messageInfo.html');
+    })
+    $deleteBtn.on('click',function(){
+        $deleteDialog.show();
+    })
+    $forwardingBtn.on('click',function(){
+        window.parent.jump('message/createMessage.html');
+    })
+    $deleteDialogCancelBtn.on('click',function(){
+        $deleteDialog.hide();
+    })
+    $tabPanel.on('click','div',function(){
+        $(this).parent().find('div').removeClass('current');
+        $(this).addClass('current');
+    })
+</script>
+</html>

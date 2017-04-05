@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>项点列表</title>
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_z741tdpn6rum1jor.css">
+	<link rel="stylesheet" href="../public/css/public.css">
+	<link rel="stylesheet" href="../public/css/sslAlert1.0.css">
+    <script src="../public/js/jquery-3.2.0.min.js"></script>
+	
+</head>
+<style>
+</style>
+<body>	
+ <div class="iframe-ct">
+<div class="addPointItems">
+		 <div class="title-bar">
+            <h3>为项点添加条目</h3>
+        </div>
+            <table id="items-table">
+                <thead>
+                    <tr>
+                        <td>序号</td>
+                        <td>条目</td>
+                        <td><label for="checkAll">全选</label>
+                            <input type="checkbox" onchange="checkAlls(this)" id="check-all">
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                    </tr>
+                </tfoot>
+            </table>
+            <button onclick = "addPointItems()">添加</button>
+        </div>
+		  </div>
+	<script>
+            var pointCode;
+			$(document).ready(function(){
+             pointCode= GetQueryString("pointCode");
+                                   });
+            
+        function GetQueryString(name)
+        {
+           var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+           var r = window.location.search.substr(1).match(reg);
+           if(r!=null)return  unescape(r[2]); return null;
+        }
+    </script>
+    <script src="../public/js/sslAlert1.0.js"></script>
+	<script src="../public/js/point/point.js"></script>
+    <script src="../public/js/point/add.js"></script>
+	<script src="../public/js/public.js"></script>
+</body>
+</html>

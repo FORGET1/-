@@ -1,0 +1,17 @@
+Maven
+参考教程：http://www.cnblogs.com/xdp-gacl/p/4051690.html
+
+Maven是自动化工程构建及管理工具
+在pom.xml中配置Maven工程需要的依赖(jar)，以及相关编译的插件和JDK版本
+导入工程后，
+首先右击工程->Maven->update project,
+再Run as->maven install，maven会自动进行jar的下载以及关联，
+下载完所有依赖的jar包之后，我们再使用run as ->maven build进行操作
+第一个build是选择历史build
+第二个是填写goal进行maven相关的组合操作，比如clean compile就是表示先清理再编译
+编译遇到问题就先project->clean一下，再Maven update project一下，再maven clean一下
+进行重新install和compile就行
+再编译成功后，就可以run as-> run on server了
+不成功的话，就重新清理再编译吧，记得如果是server的问题就先删掉server这个自动生成的工程，
+再windows->preference  server->runtime 里重新配置server就行
+

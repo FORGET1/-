@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>证照管理</title>
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_aaebiml8x5b138fr.css">
+    <link rel="stylesheet" href="../public/css/public.css">
+    <script src="../public/js/jquery-3.2.0.min.js"></script>
+<style>
+    .iframe-ct{
+        position: relative;
+        /*height: 830px;*/
+    }
+    .table-button{
+        margin-bottom: 30px;
+    }
+</style>
+</head>
+<body>
+    <div class="iframe-ct">
+        <div class="title-bar">
+            <h3>证照管理</h3>
+            <span class="">
+                <i class="iconfont icon-search"></i>
+                <div class="search-panel">
+                    <form action="">
+                        <label for="">关键词</label><br>
+                        <input type="text" id="keyword"><br>
+                        <label for="search-type">按照</label><br>
+                        <select name="search-type" id="search-type" class="">
+                            <option value="title">通知标题</option>
+                            <option value="sender">发送者</option>
+                            <option value="receiver">接收者</option>
+                        </select><br>
+                        <button>查询</button>
+                    </form>
+                </div>
+            </span>
+            <span class="license-type">证照类型</span>
+        </div>
+        <div class="license">
+            <table>
+                <thead>
+                    <tr>
+                        <td>序号</td>
+                        <td>证照名称</td>
+                        <td>上传日期</td>
+                        <td>有效日期</td>
+                        <td>是否过期</td>
+                        <td>操作</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10</td>
+                        <td>2017-10-10</td>
+                        <td>未过期</td>
+                        <td>
+                            <button class="view-btn">查看</button>
+                            <button class="delete-btn">删除</button>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                    </tr>
+                </tfoot>
+            </table>
+            <div class="table-button">
+                <button class="previous-page">上一页</button>
+                <button class="next-page">下一页</button>
+                <span class="page-number">1 / 2</span>
+                <button class="first-page">首页</button>
+                <button class="last-page">尾页</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    var $licenseTypeBtn = $('.title-bar .license-type'),
+        $pageNumberSpan = $('.table-button>.page-number'),
+        $listTbody = $('.license>table>tbody'),
+        $searchKeyword = $('#keyword'),
+        $searchType = $('#search-type'),
+        $searchBtn = $('.search-panel .search-btn'),
+        $previousPageBtn = $('.table-button .previous-page'),
+        $nextPageBtn = $('.table-button .next-page'),
+        $lastPageBtn = $('.table-button .last-page'),
+        $firstPageBtn = $('.table-button .first-page'),
+        currentPage,
+        lastPage;
+
+    $licenseTypeBtn.on('click',function(){
+        window.parent.jump('views/license/licenseType.html');
+    })
+
+
+    function searchLicense(keyword,type,page){
+        $.get('/searchLicense',{page:keyword,type:type,page:1}).done(function(result){
+            importList(result.license);
+            currentPage = result.page;
+            lastPage = result.lastPage;
+            $pageNumberSpan.text(result.page + '/' + result.lastPage);
+            bindPageBtns('search');
+        })
+    }
+    function getLicenseList(page){
+        $.get('/getLicenseList',{page:page,userID:1}).done(function(result){
+            console.log(result);
+            importList(result.license,'get');
+            currentPage = result.page;
+            lastPage = result.lastPage;
+            $pageNumberSpan.text(result.page + '/' + result.lastPage);
+        })
+    }
+    function importList(dataArr){
+        $listTbody.empty();
+        $(dataArr).each(function(i){
+            var $tr = $(
+                '<tr><td>'+
+                    '<button class="view-btn">查看</button>&nbsp'+
+                    '<button class="delete-btn">删除</button>'+
+                '</td></tr>'
+            );
+            if(dataArr[i].expiredStatus){
+                $tr.prepend($('<td>是</td>'));
+            }else{
+                $tr.prepend($('<td>否</td>'));
+            }
+            
+            $tr.prepend($('<td>'+dataArr[i].expireDate+'</td>'));
+            $tr.prepend($('<td>'+dataArr[i].uploadDate+'</td>'));
+            $tr.prepend($('<td>'+dataArr[i].licenseName+'</td>'));
+            $tr.prepend($('<td>'+(i+1)+'</td>'));
+            $tr.data('licenseCode',dataArr[i].licenseCode);
+            $listTbody.append($tr);
+        })
+        bindListBtns();
+        window.parent.adjustHeight();
+    }
+    function bindListBtns(){
+        var $deleteBtn = $('.license .delete-btn'),
+            $viewBtn = $('.license .view-btn');
+
+        $deleteBtn.on('click',function(){
+            window.parent.showDialog('删除',function(){
+                console.log(1);
+            });
+        })
+        $viewBtn.on('click',function(){
+            window.parent.showImage([
+                'views/public/img/test1.jpg',
+                'views/public/img/test2.jpg',
+                'views/public/img/test3.jpg',
+                'views/public/img/test4.jpg',
+                'views/public/img/test5.jpg',
+                'views/public/img/test6.jpg',
+                'views/public/img/test7.jpg'
+            ]);
+        })
+    }
+    function bindPageBtns(type){
+        switch(type){
+            case 'get':
+                $previousPageBtn.on('click',function(){
+                    if(currentPage > 1 || lastPage >1){
+                        getLicenseList(currentPage-1);
+                    }
+                })
+                $nextPageBtn.on('click',function(){
+                    if(currentPage < lastPage){
+                        getLicenseList(currentPage+1);
+                    }
+                })
+                $firstPageBtn.on('click',function(){
+                    if(currentPage > 1 || lastPage >1){
+                        getLicenseList(1);
+                    }
+                })
+                $lastPageBtn.on('click',function(){
+                    if(currentPage < lastPage || lastPage >1){
+                        getLicenseList(lastPage);
+                    }
+                })
+                break;
+            case 'search':
+                $previousPageBtn.on('click',function(){
+                    if(currentPage > 1 || lastPage >1){
+                        searchLicense($searchKeyword.val(),$searchType.val(),currentPage-1);
+                    }
+                })
+                $nextPageBtn.on('click',function(){
+                    if(currentPage < lastPage){
+                        searchLicense($searchKeyword.val(),$searchType.val(),currentPage+1);
+
+                    }
+                })
+                $firstPageBtn.on('click',function(){
+                    if(currentPage > 1 || lastPage >1){
+                        searchLicense($searchKeyword.val(),$searchType.val(),1);
+                    }
+                })
+                $lastPageBtn.on('click',function(){
+                    if(currentPage < lastPage || lastPage >1){
+                        searchLicense($searchKeyword.val(),$searchType.val(),lastPage);
+                    }
+                })
+                break;
+        }
+    }
+
+</script>
+</html>

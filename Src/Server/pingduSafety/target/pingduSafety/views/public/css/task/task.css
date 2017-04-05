@@ -1,0 +1,149 @@
+@CHARSET "UTF-8";
+
+body {
+	font-family:'Microsoft Yahei';
+    font-weight:500;
+    background-color: rgb(255,255,255);
+}
+
+#show-point,#refresh-point,#pre_page,#next_page,#last_page,#first_page {
+	cursor: pointer;
+}
+.foot {
+	margin-top:20px;
+}
+#point-table {
+	margin-top:20px;
+	
+}
+/* .table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td { */
+/* 	padding:1%; */
+/* } */
+
+#beginTime,#endTime {
+	display:block;
+	border: 2px solid #ccc;
+	height: 30%;
+	width:92%;
+}
+.task-col {
+	margin-top:1%;
+	padding-left:3%;
+	padding-right:3%;
+}
+.search-button {
+	margin-left:10%;
+}
+/* .textbox .textbox-text {
+    font-size: 11px;
+    border: 0;
+    margin: 0;
+    padding: 4px;
+    white-space: normal;
+    vertical-align: top;
+    outline-style: none;
+    resize: none;
+    -moz-border-radius: 5px 5px 5px 5px;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 1px 1px 1px 1px;
+    border: 1px solid #ccc;
+} */
+.textbox .textbox-text{
+	font-size:11px;
+}
+
+.task-page-row {
+	padding-left: 1%;
+	padding-right: 1%;
+	
+	margin-top: 2px;
+}
+.task-page-row div {
+	padding-left:35%;
+	padding-top:1%;
+	padding-bottom:1%;
+	background-color: #3a3633;
+	border-radius: 2px;
+	height: 2%;
+}
+.task-page-row a,.task-page-row span {
+	margin:1%;
+	
+	color: rgb(255,255,255);
+}
+
+.point-op {
+	padding-top:0.5%;
+	padding-bottom:0.2%;
+}
+
+
+.photo-row img {
+	max-height:400px;;
+	
+	margin-top:1%;
+	margin-bottom: 1%;
+}
+
+/* 添加任务的等待动画 */
+html{height: 100%}
+body{height: 100%;margin: 0px;padding: 0px}
+.modal {
+			display: none;/* Hidden by default */
+		    position: fixed; /* Stay in place */
+		    z-index: 1; /* Sit on top */
+		    /* padding-top: 100px; */ /* Location of the box */
+		    left: 0;
+		    top: 0;
+		    width: 100%; /* Full width */
+		    height: 100%; /* Full height */
+		    overflow: auto; /* Enable scroll if needed */
+		    
+		    /* background-color: rgba(0,0,0,0.5);  *//* Black w/ opacity */
+		   /* color: white;*/
+		    animation-name: zoom;
+    		animation-duration: 1s;
+
+		}
+		#container{
+			height: 40%;
+			width: 40%;
+			margin-top:20%;
+			margin-left: auto;
+			margin-right: auto;
+			padding-left:15%;
+			padding-top:10%;
+			z-index: 2;
+			border-width: 1px;
+			border-color: #795548;
+			border-radius: 5px;
+			background: white;
+		}
+		
+		.diamond{
+			height: 10px;
+			width: 10px;
+			float: left;
+			background: #795548;
+			margin-left: 15px;			
+		}
+		
+		@keyframes jump {
+			0% {
+				position: relative;
+				bottom:5px;
+			}
+			50% {
+				position: relative;
+				bottom:25px;
+			}
+			100% {
+				position: relative;
+				bottom:5px;
+			}
+		}
+		@keyframes zoom {
+		    0% {transform: scale(0)}  
+		    100% {transform: scale(1)}
+		}
+		

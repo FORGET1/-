@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>添加巡检条目</title>
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_z741tdpn6rum1jor.css">
+	<link rel="stylesheet" href="../public/css/public.css">
+	<link rel="stylesheet" href="../public/css/sslAlert1.0.css">
+    <script src="../public/js/jquery-3.2.0.min.js"></script>
+	<script src="../public/js/public.js"></script>
+	<script src="../public/js/sslAlert1.0.js"></script>
+    <script src="../public/js/item/item.js"></script>
+<style>
+    .iframe-ct .information{
+        width: 900px;
+        margin: 30px 0;
+        margin-left: 85px;
+    }
+    .iframe-ct .information>ul>li{
+        float: left;
+        margin-right: 30px;
+        margin-bottom: 20px;
+    }
+    .iframe-ct .information>ul>li>label{
+        margin-right: 10px;
+    }
+    .iframe-ct .information>.form-button{
+        text-align: center;
+        margin-left: -85px;
+    }
+    .iframe-ct .information>.form-button>button{
+        margin: 0 15px;
+    }
+	</style>
+</head>
+<body>
+    <div class="iframe-ct">
+        <div class="title-bar">
+            <h3>添加巡检条目</h3>
+        </div>
+        <form action="" class="information clearfix">
+             <ul class="clearfix">
+                  <li>
+                      <label for="point-name">巡检条目内容</label>
+                       <input type="text" class="long " id="itemContent">
+                  </li>
+             </ul>
+        </form>
+	    <div class="title-bar">
+            <h3>选择关联项点</h3>
+        </div><br>
+		<label class="clearfix" for="" style="margin-left:80px; "> 请选择关联项点:</label>
+		<form action="" class="information clearfix">
+		    <input type='checkbox'  name="point" onchange='checkAll(this)' id="check-all"/> &nbsp 全选
+            <div id = pointDiv>
+			<input type='checkbox' name="point" style="margin-left:30px; " onchange='checkChange(this)' id="check" value=""/>&nbsp项点1
+			<input type='checkbox' name="point" style="margin-left:30px; " onchange='checkChange(this)' id="check" value=""/>&nbsp项点2
+		   <input type='checkbox' name="point" style="margin-left:30px; " onchange='checkChange(this)' id="check" value=""/>&nbsp项点3
+		   <input type='checkbox' name="point" style="margin-left:30px; " onchange='checkChange(this)' id="check" value=""/>&nbsp项点4
+           </div>
+			<div class="form-button">
+				<button class="">返回</button>
+				<button class="blue-btn">保存</button>
+			</div>		
+		</form>
+   </div>
+</body>
+<script>
+          $(document).ready(function(){
+                   getAllPoints();
+                                   });
+</script>
+</html>

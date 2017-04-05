@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/title_bar_height"
+    android:background="@mipmap/first_title_bg">
+
+    <Button
+        android:id="@+id/btn_return"
+        style="@style/title_left_btn"
+        android:text="@string/btn_return"
+        android:textColor="@color/white" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        tools:ignore="RelativeOverlap,UseCompoundDrawables">
+
+        <ImageView
+            style="@style/title_image"
+            android:layout_gravity="center_vertical"
+            android:contentDescription="@string/warning_title"
+            app:srcCompat="@mipmap/security_commitments_actionbar" />
+
+        <TextView
+            style="@style/title_tv"
+            android:text="@string/security_commitments"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+</RelativeLayout>

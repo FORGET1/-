@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>修改企业信息</title>
+    <link rel="stylesheet" href="../public/css/public.css">
+    <script src="../public/js/jquery-3.2.0.min.js"></script>
+<style>
+    .iframe-ct{
+        /*height: 1000px;*/
+    }
+    .iframe-ct .information{
+        width: 900px;
+        margin: 30px 0;
+        margin-left: 85px;
+    }
+    .iframe-ct .information>ul>li{
+        float: left;
+        margin-right: 30px;
+        margin-bottom: 20px;
+    }
+    .iframe-ct .information>ul>li>label{
+        margin-right: 10px;
+    }
+    .iframe-ct .information>.form-button{
+        text-align: center;
+        margin-left: -85px;
+    }
+    .iframe-ct .information>.form-button>button{
+        margin: 0 15px;
+    }
+    .table-button{
+        margin-bottom: 30px;
+    }
+</style>
+</head>
+<body>
+    <div class="iframe-ct">
+        <div class="title-bar">
+            <h3>修改企业信息</h3>
+        </div>
+            <form action="" class="information clearfix">
+                <ul class="clearfix">
+                    <li>
+                        <label for="company-name">企业名称</label>
+                        <input type="text" class="medium" id="company-name">
+                    </li>
+                    <li>
+                        <label for="company-type">企业类型</label>
+                        <select name="company-type" id="company-type" class="short">
+                            <option value="gas-station">加油站</option>
+                            <option value="chemical-plant">化工厂</option>
+                        </select>
+                    </li>
+                    <li>
+                        <label for="management-department">管辖部门</label>
+                        <select name="management-department" id="management-department" class="medium">
+                            <option value="office1">安监办1</option>
+                            <option value="office2">安监办2</option>
+                        </select>
+                    </li>
+                    <li>
+                        <label for="legal-representative">法人代表</label>
+                        <input type="text" class="short" id="legal-representative">
+                    </li>
+                    <li>
+                        <label for="business-phone">企业电话</label>
+                        <input type="text" class="medium" id="business-phone">
+                    </li>
+                    <li>
+                        <label for="contact-number">联系电话</label>
+                        <input type="text" class="medium" id="contact-number">
+                    </li>
+                    <li>
+                        <label for="address">企业地址</label>
+                        <input type="text" class="long" id="address">
+                    </li>
+                </ul>
+                <div class="form-button">
+                    <button class="">返回</button>
+                    <button class="blue-btn">保存</button>
+                </div>
+            </form>
+        <div class="license">
+            <div class="title-bar">
+                <h3>企业相关证件</h3>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <td>序号</td>
+                        <td>证件名称</td>
+                        <td>上传时间</td>
+                        <td>到期时间</td>
+                        <td>是否过期</td>
+                        <td>操作</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10</td>
+                        <td>2017-10-10</td>
+                        <td>否</td>
+                        <td>
+                            <button>查看</button>
+                            <button>删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10</td>
+                        <td>2017-10-10</td>
+                        <td>否</td>
+                        <td>
+                            <button>查看</button>
+                            <button>删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10</td>
+                        <td>2017-10-10</td>
+                        <td>否</td>
+                        <td>
+                            <button>查看</button>
+                            <button>删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10</td>
+                        <td>2017-10-10</td>
+                        <td>否</td>
+                        <td>
+                            <button>查看</button>
+                            <button>删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10</td>
+                        <td>2017-10-10</td>
+                        <td>否</td>
+                        <td>
+                            <button>查看</button>
+                            <button>删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10</td>
+                        <td>2017-10-10</td>
+                        <td>否</td>
+                        <td>
+                            <button>查看</button>
+                            <button>删除</button>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td>7</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10</td>
+                        <td>2017-10-10</td>
+                        <td>否</td>
+                        <td>
+                            <button>查看</button>
+                            <button>删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10</td>
+                        <td>2017-10-10</td>
+                        <td>否</td>
+                        <td>
+                            <button>查看</button>
+                            <button>删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10</td>
+                        <td>2017-10-10</td>
+                        <td>否</td>
+                        <td>
+                            <button>查看</button>
+                            <button>删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10</td>
+                        <td>2017-10-10</td>
+                        <td>否</td>
+                        <td>
+                            <button>查看</button>
+                            <button>删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10</td>
+                        <td>2017-10-10</td>
+                        <td>否</td>
+                        <td>
+                            <button>查看</button>
+                            <button>删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10</td>
+                        <td>2017-10-10</td>
+                        <td>否</td>
+                        <td>
+                            <button>查看</button>
+                            <button>删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10</td>
+                        <td>2017-10-10</td>
+                        <td>否</td>
+                        <td>
+                            <button>查看</button>
+                            <button>删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10</td>
+                        <td>2017-10-10</td>
+                        <td>否</td>
+                        <td>
+                            <button>查看</button>
+                            <button>删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>2016-10-10</td>
+                        <td>2017-10-10</td>
+                        <td>否</td>
+                        <td>
+                            <button>查看</button>
+                            <button>删除</button>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                    </tr>
+                </tfoot>
+            </table>
+            <div class="table-button">
+                <button class="">上一页</button>
+                <span>1 / 2</span>
+                <button class="">下一页</button>
+            </div>
+        </div>
+        <div class="point">
+            <div class="title-bar">
+                <h3>企业管辖项点</h3>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <td>序号</td>
+                        <td>项点名称</td>
+                        <td>负责人</td>
+                        <td>联系电话</td>
+                        <td>GPS-X坐标</td>
+                        <td>GPS-Y坐标</td>
+                        <td>操作</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>李四</td>
+                        <td>12345678</td>
+                        <td>192</td>
+                        <td>168</td>
+                        <td>
+                            <button>查看</button>
+                            <button>删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>李四</td>
+                        <td>12345678</td>
+                        <td>192</td>
+                        <td>168</td>
+                        <td>
+                            <button>查看</button>
+                            <button>删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>李四</td>
+                        <td>12345678</td>
+                        <td>192</td>
+                        <td>168</td>
+                        <td>
+                            <button>查看</button>
+                            <button>删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>李四</td>
+                        <td>12345678</td>
+                        <td>192</td>
+                        <td>168</td>
+                        <td>
+                            <button>查看</button>
+                            <button>删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>李四</td>
+                        <td>12345678</td>
+                        <td>192</td>
+                        <td>168</td>
+                        <td>
+                            <button>查看</button>
+                            <button>删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>李四</td>
+                        <td>12345678</td>
+                        <td>192</td>
+                        <td>168</td>
+                        <td>
+                            <button>查看</button>
+                            <button>删除</button>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td>7</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>李四</td>
+                        <td>12345678</td>
+                        <td>192</td>
+                        <td>168</td>
+                        <td>
+                            <button>查看</button>
+                            <button>删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>李四</td>
+                        <td>12345678</td>
+                        <td>192</td>
+                        <td>168</td>
+                        <td>
+                            <button>查看</button>
+                            <button>删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>李四</td>
+                        <td>12345678</td>
+                        <td>192</td>
+                        <td>168</td>
+                        <td>
+                            <button>查看</button>
+                            <button>删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>李四</td>
+                        <td>12345678</td>
+                        <td>192</td>
+                        <td>168</td>
+                        <td>
+                            <button>查看</button>
+                            <button>删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>李四</td>
+                        <td>12345678</td>
+                        <td>192</td>
+                        <td>168</td>
+                        <td>
+                            <button>查看</button>
+                            <button>删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>李四</td>
+                        <td>12345678</td>
+                        <td>192</td>
+                        <td>168</td>
+                        <td>
+                            <button>查看</button>
+                            <button>删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>李四</td>
+                        <td>12345678</td>
+                        <td>192</td>
+                        <td>168</td>
+                        <td>
+                            <button>查看</button>
+                            <button>删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>李四</td>
+                        <td>12345678</td>
+                        <td>192</td>
+                        <td>168</td>
+                        <td>
+                            <button>查看</button>
+                            <button>删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td>xxxxxxxxxxxxxx</td>
+                        <td>李四</td>
+                        <td>12345678</td>
+                        <td>192</td>
+                        <td>168</td>
+                        <td>
+                            <button>查看</button>
+                            <button>删除</button>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                    </tr>
+                </tfoot>
+            </table>
+            <div class="table-button">
+                <button class="">上一页</button>
+                <span>1 / 2</span>
+                <button class="">下一页</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

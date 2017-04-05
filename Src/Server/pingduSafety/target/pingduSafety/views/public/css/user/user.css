@@ -1,0 +1,26 @@
+@CHARSET "UTF-8";
+
+.pub_table tr td:nth-child(2n+1) {
+	background-color: #ededed;
+}
+.pub_table tr td:nth-child(2n) {
+    width: 35%;
+}
+.pub_table {
+	margin-top:20px;
+}
+
+.img-col {
+	margin-top:20px;
+}
+
+.user-other {
+	margin-left: 40px;
+    margin-right: 40px;
+/* background-color: #009edb; */
+}
+
+#date {
+	width: 93%;
+}
+

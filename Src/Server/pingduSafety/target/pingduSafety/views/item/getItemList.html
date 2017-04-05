@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>巡检条目列表</title>
+   
+	
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_z741tdpn6rum1jor.css">
+	<link rel="stylesheet" href="../public/css/public.css">
+	<link rel="stylesheet" href="../public/css/sslAlert1.0.css">
+    <script src="../public/js/jquery-3.2.0.min.js"></script>
+	<script src="../public/js/public.js"></script>
+	<script src="../public/js/sslAlert1.0.js"></script>
+    <script src="../public/js/item/item.js"></script>
+</head>
+<style>
+</style>
+<body>	
+ <div class="iframe-ct">
+<div class="item">
+		 <div class="title-bar">
+            <h3>巡检条目列表</h3>
+            <span class="">
+                <i class="iconfont icon-search"></i>
+                <div class="search-panel">
+                    <form action="">
+                        <label for="">关键词</label></br>
+                        <input type="text" id="keyword"></br>
+                        <button onclick="searchItem(1)">查询</button>
+                    </form>
+                </div>
+            </span>
+			<span class="add-item" onClick="addItem()">+添加条目</span>
+        </div>
+            <table id="list-table">
+                <thead>
+                    <tr>
+                        <td>序号</td>
+                        <td>条目内容</td>
+                        <td>操作</td>
+                    </tr>
+                </thead>
+                <tbody>
+					
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                    </tr>
+                </tfoot>
+            </table>
+            <div class="table-button">
+                <button class="" id="up-btn" >上一页</button>
+                <span id="page"></span> / <span id = "sumpage"></span>
+                <button class="" id = "down-btn">下一页</button>
+            </div>
+        </div>
+		  </div>
+	<script>
+      
+        $(document).ready(function(){
+	        getItemList(1);
+        });
+    </script>
+</body>
+</html>

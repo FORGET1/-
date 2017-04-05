@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>通知详情</title>
+    <link rel="stylesheet" href="../css/public.css">
+    <script src="../js/jquery-3.2.0.min.js"></script>
+<style>
+    .info{
+        width: 80%;
+        margin: 20px auto;
+        /*border: 1px solid black;*/
+    }
+    .info table{
+        width: 100%;
+    }
+    .info td{
+        text-align: left;
+        word-wrap:break-word;
+    }
+    .info h3{
+        display: inline-block;
+        font-size: 16px;
+        font-weight: 500;
+        margin-right: 10px;
+    }
+    .info span{
+        display: inline-block;
+        padding: 0 30px;
+        background-color: #e6e6e6;
+        line-height: 30px;
+        border-radius: 5px;
+    }
+    .info .message-content{
+        margin-left: 50px;
+        box-sizing: border-box;
+        width: 720px;
+        /*display: inline-block;*/
+        padding: 10px 30px;
+        background-color: #e6e6e6;
+        line-height: 30px;
+        border-radius: 5px;
+    }
+    .table-button{
+        margin-bottom: 30px;
+    }
+</style>
+</head>
+<body>
+    <div class="iframe-ct">
+        <div class="title-bar">
+            <h3>通知详情</h3>
+        </div>
+        <div class="info clearfix">
+            <table>
+                <tr>
+                    <td>
+                        <h3>标题</h3>
+                        <span>xxxxxxxxxxx号文件</span>
+                    </td>
+                    <td>
+                        <h3>类型</h3>
+                        <span>警告</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h3>发布时间</h3>
+                        <span>2016-10-10</span>
+                    </td>
+                    <td>
+                        <h3>发送人</h3>
+                        <span>xxxxxxx安监办</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <h3>内容</h3>
+                        <br>
+                        <p class="message-content">jdsafdsa;nvcm,xzkljadsfioepwjnjdsafdsa;nvcm,xzkljadsfioepwjnjdsafdsa;nvcm,xzkljadsfioepwjnjdsafdsa;nvcm,xzkljadsfioepwjnjdsafdsa;nvcm,xzkljadsfioepwjnjdsafdsa;nvcm,xzkljadsfioepwjnjdsafdsa;nvcm,xzklja</p>
+                    </td>
+                </tr>
+            </table>
+                <!--<ul>
+                    <li>
+
+                    </li>
+                    <li>
+                        <h3>类型</h3>
+                        <span>警告</span>
+                    </li>
+                    <li>
+                        <h3>发布时间</h3>
+                        <span>2016-10-10</span>
+                    </li>
+                    <li>
+                        <h3>发送人</h3>
+                        <span>xxxxxxx安监办</span>
+                    </li>
+                    <li>
+                        <h3>内容</h3>
+                        <br>
+                        <span>jdsafdsa;nvcm,xzkljadsfioepwjn</span>
+                    </li>
+                </ul>-->
+        </div>
+        <div class="title-bar">
+            <h3>接收人列表</h3>
+        </div>
+        <div class="receiver-list">
+            <table>
+                <thead>
+                    <tr>
+                        <td>序号</td>
+                        <td>接收人</td>
+                        <td>是否已读</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>xxxxxx</td>
+                        <td>是</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>xxxx</td>
+                        <td>是</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>xxxxxx</td>
+                        <td>否</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>xxxx</td>
+                        <td>否</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>xxxxxx</td>
+                        <td>否</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>xxxx</td>
+                        <td>否</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>xxxx</td>
+                        <td>否</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>xxxx</td>
+                        <td>否</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>xxxx</td>
+                        <td>否</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>xxxx</td>
+                        <td>否</td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>xxxx</td>
+                        <td>否</td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>xxxx</td>
+                        <td>否</td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>xxxx</td>
+                        <td>否</td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>xxxx</td>
+                        <td>否</td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td>xxxx</td>
+                        <td>否</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                    </tr>
+                </tfoot>
+            </table>
+            <div class="table-button">
+                <button class="">上一页</button>
+                <span>1 / 2</span>
+                <button class="">下一页</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

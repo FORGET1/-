@@ -1,0 +1,194 @@
+    body,ul,li,h3{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,PingFang SC,Source Han Sans CN,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif;
+        color: #333333;
+        font-size: 14px;
+    }
+/*hack*/
+    .clearfix:after{
+        content: "";
+        display: block;
+        clear: both;
+    }
+/*记得加清除浮动*/
+    .iframe-ct{
+        width: 1000px;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+/*外包裹div*/
+    button{
+        outline:0px;
+        width: 60px;
+        height: 25px;
+        /*line-height: 25px;*/
+        border-radius: 6px;
+        border: 1px solid #b3b3b3;
+        font-weight: bold;
+        background-image: linear-gradient(to bottom,#f2f2f2,#cccccc);
+    }
+    button:active{
+        background-image: linear-gradient(to top,#f2f2f2,#cccccc);
+        box-shadow: 0px 0px 3px gray inset;
+    }
+/*按钮*/
+    .blue-btn{
+        background-image: linear-gradient(to bottom,#0096ff,#0058ff);
+        color: white;
+    }
+    .blue-btn:active{
+        background-image: linear-gradient(to top,#0096ff,#0058ff);
+        box-shadow: 0px 0px 3px gray inset;
+    }
+/*蓝色按钮，用于和返回按钮区分*/
+    .short{
+        width: 110px;
+    }
+    .medium{
+        width: 220px;
+    }
+    .long{
+        width: 750px;
+    }
+    input{
+        text-indent: 5px;
+        outline:0px;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        border-radius: 6px;
+        border: 1px solid silver;
+        line-height: 17px;
+    }
+/*输入框,对应短中长三个宽度*/
+    select{
+        outline:0px;
+        box-sizing: border-box;
+        border-radius: 6px;
+        border: 1px solid silver;
+        background-color: white;
+    }
+/*下拉框*/
+    .title-bar{
+        margin-top: 30px;
+        width: 100%;
+        height: 28px;
+        background-image: linear-gradient(to bottom,#f2f2f2,#cccccc);
+        box-shadow: 0px 1px 1px silver;
+    }
+    .title-bar>h3{
+        line-height: 28px;
+        margin-left: 20px;
+        display: inline-block;
+    }
+    .title-bar>span{
+        float: right;
+        line-height: 28px;
+        font-size: 12px;
+        margin-right: 10px;
+        padding: 0 10px;
+        cursor: pointer;
+        position: relative;
+    }
+    .title-bar>span:hover{
+        background-color: #4b4b4b;
+        color: white;
+    }
+/*标题栏，以及里面的按钮*/
+    .search-panel{
+        width: 180px;
+        font-size: 12px;
+        display: none;
+        position: absolute;
+        top: 29px;
+        right: 0px;
+        z-index: 6;
+        background-color: #333333;
+        color: white;
+        border-radius: 0 0 5px 5px;
+        opacity: 0.8;
+        transition: all 1s;
+    }
+    .search-panel>form{
+        margin: 20px;
+        margin-top: 10px;
+    }
+    .search-panel>form>select{
+        width: 128px;
+    }
+    .search-panel>form>button{
+        margin-top: 10px;
+    }
+    .title-bar>span:hover .search-panel{
+        display: block;
+    }
+/*标题栏里的搜索框*/
+    /*.tab-panel{
+        margin: 0 auto;
+        text-align: center;
+        margin-top: 20px;
+        width: 400px;
+        height: 30px;
+        border: 1px solid silver;
+        overflow: hidden;
+        border-radius: 5px;
+        background-image: linear-gradient(to bottom,#f2f2f2,#cccccc);
+    }
+    .tab-panel>div{
+        float: left;
+        width: 200px;
+        height: 30px;
+        line-height: 30px;
+        border-right: 1px solid silver;
+        text-align: center;
+        box-sizing: border-box;
+        cursor: pointer;
+    }
+    .tab-panel>div>i{
+        font-size: 20px;
+    }
+    .tab-panel>div:first-child i{
+        position: relative;
+        top: 2px;
+        font-size: 22px;
+    }
+    .tab-panel>.current{
+        background-color: #4b4b4b;
+        color: white;
+    }
+    .tab-panel>div:active{
+        background-color: #cccccc;
+    }
+    .tab-panel>.current:active{
+        background-color: #4b4b4b;
+        color: white;
+    }*/
+/*2项tab切换按钮*/
+    table{
+        width: 950px;
+        margin: 30px auto;
+        text-align: center;
+        border-collapse: collapse;
+    }
+    table>thead>tr{
+        border-bottom: 1px solid #b3b3b3;
+        line-height: 35px;
+    }
+    table>tfoot>tr{
+        border-top: 1px solid #b3b3b3;
+        line-height: 1px;
+    }
+    table>tbody>tr{
+        line-height: 35px;
+    }
+/*表格*/
+    .table-button{
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .table-button>button{
+        margin: 0 15px;
+    }
+/*表格按钮*/

@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>证照管理</title>
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_aaebiml8x5b138fr.css">
+    <link rel="stylesheet" href="../public/css/public.css">
+    <script src="../public/js/jquery-3.2.0.min.js"></script>
+<style>
+    .iframe-ct{
+        position: relative;
+        /*height: 830px;*/
+    }
+    .delete-dialog-ct{
+        display: none;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.7);
+        position: absolute;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+    }
+    .delete-dialog-ct>.dialog{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-left: -150px;
+        margin-top: -60px;
+        background-color: white;
+        border: 1px solid silver;
+        border-radius: 5px;
+        width: 300px;
+        height: 120px;
+    }
+    .delete-dialog-ct>.dialog>.title-bar{
+        margin: 0;
+    }
+    .delete-dialog-ct>.dialog>.dialog-btn{
+        margin-top: 30px;
+        text-align: center;
+    }
+    .delete-dialog-ct>.dialog>.dialog-btn>button{
+        margin: 0 10px;
+    }
+    .table-button{
+        margin-bottom: 30px;
+    }
+    .new-item{
+        background-color: mediumseagreen;
+        color: white;
+        line-height: 46px;
+    }
+    .new-item input{
+        text-align: center;
+    }
+    .virtual-item{
+        opacity: 0;
+        line-height: 1px;
+    }
+</style>
+</head>
+<body>
+    <div class="iframe-ct">
+        <div class="title-bar">
+            <h3>证照类型管理</h3>
+            <!--<span class="">
+                <i class="iconfont icon-search"></i>
+                <div class="search-panel">
+                    <form action="">
+                        <label for="">关键词</label><br>
+                        <input type="text" id="keyword"><br>
+                        <label for="search-type">按照</label><br>
+                        <select name="search-type" id="search-type" class="">
+                            <option value="title">通知标题</option>
+                            <option value="sender">发送者</option>
+                            <option value="receiver">接收者</option>
+                        </select><br>
+                        <button>查询</button>
+                    </form>
+                </div>
+            </span>-->
+            <span class="add-license-type">+添加证照类型</span>
+        </div>
+        <div class="company">
+            <table>
+                <thead>
+                    <tr>
+                        <td>序号</td>
+                        <td>企业类型</td>
+                        <td>证照名称</td>
+                        <td>有效期</td>
+                        <td>操作</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>加油站</td>
+                        <td>营业执照</td>
+                        <td>24个月</td>
+                        <td>
+                            <button class="revise-btn">修改</button>
+                            <button class="delete-btn">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>加油站</td>
+                        <td>营业执照</td>
+                        <td>24个月</td>
+                        <td>
+                            <button class="revise-btn">修改</button>
+                            <button class="delete-btn">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>加油站</td>
+                        <td>营业执照</td>
+                        <td>24个月</td>
+                        <td>
+                            <button class="revise-btn">修改</button>
+                            <button class="delete-btn">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>加油站</td>
+                        <td>营业执照</td>
+                        <td>24个月</td>
+                        <td>
+                            <button class="revise-btn">修改</button>
+                            <button class="delete-btn">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>加油站</td>
+                        <td>营业执照</td>
+                        <td>24个月</td>
+                        <td>
+                            <button class="revise-btn">修改</button>
+                            <button class="delete-btn">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>加油站</td>
+                        <td>营业执照</td>
+                        <td>24个月</td>
+                        <td>
+                            <button class="revise-btn">修改</button>
+                            <button class="delete-btn">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>加油站</td>
+                        <td>营业执照</td>
+                        <td>24个月</td>
+                        <td>
+                            <button class="revise-btn">修改</button>
+                            <button class="delete-btn">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>加油站</td>
+                        <td>营业执照</td>
+                        <td>24个月</td>
+                        <td>
+                            <button class="revise-btn">修改</button>
+                            <button class="delete-btn">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>加油站</td>
+                        <td>营业执照</td>
+                        <td>24个月</td>
+                        <td>
+                            <button class="revise-btn">修改</button>
+                            <button class="delete-btn">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>加油站</td>
+                        <td>营业执照</td>
+                        <td>24个月</td>
+                        <td>
+                            <button class="revise-btn">修改</button>
+                            <button class="delete-btn">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>加油站</td>
+                        <td>营业执照</td>
+                        <td>24个月</td>
+                        <td>
+                            <button class="revise-btn">修改</button>
+                            <button class="delete-btn">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>加油站</td>
+                        <td>营业执照</td>
+                        <td>24个月</td>
+                        <td>
+                            <button class="revise-btn">修改</button>
+                            <button class="delete-btn">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>加油站</td>
+                        <td>营业执照</td>
+                        <td>24个月</td>
+                        <td>
+                            <button class="revise-btn">修改</button>
+                            <button class="delete-btn">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>加油站</td>
+                        <td>营业执照</td>
+                        <td>24个月</td>
+                        <td>
+                            <button class="revise-btn">修改</button>
+                            <button class="delete-btn">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td>加油站</td>
+                        <td>营业执照</td>
+                        <td>24个月</td>
+                        <td>
+                            <button class="revise-btn">修改</button>
+                            <button class="delete-btn">删除</button>
+                        </td>
+                    </tr>
+                    <tr class="virtual-item">
+                        <td>+</td>
+                        <td>
+                            <select disabled="disabled" name="year" id="year">
+                                <option value="1">化工厂</option>
+                                <option value="1">加油站</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input disabled="disabled" type="text">
+                        </td>
+                        <td>
+                            <select disabled="disabled" name="year" id="year">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                            <label for="year">年零</label>
+                            <select  disabled="disabled" name="month" id="month">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                            </select>
+                            <label for="month">个月</label>
+                        </td>
+                        <td> 
+                            <button class="">取消</button>
+                            <button class="">添加</button>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                    </tr>
+                </tfoot>
+            </table>
+            <div class="table-button">
+                <button class="">上一页</button>
+                <button class="">下一页</button>
+                <span>1 / 2</span>
+                <button class="">首页</button>
+                <button class="">尾页</button>
+            </div>
+        </div>
+        <div class="delete-dialog-ct">
+            <div class="dialog">
+                <div class="title-bar">
+                    <h3>删除通知</h3>
+                </div>
+                <div class="dialog-btn">
+                    <button class="cancel-btn">取消</button>
+                    <button class="delete-btn blue-btn">删除</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    var $iframe = $('#iframe'),
+        $addLicenseType = $('.title-bar .add-license-type'),
+        $contentDiv = $('.content'),
+        $tbody = $('.company>table>tbody'),
+        // $newItem = $('.new-item'),
+        // $newItemCancel = $('.new-item .cancel-btn'),
+        // $newItemConfirm = $('.new-item .confirm-btn'),
+        $deleteDialog = $('.delete-dialog-ct'),
+        $deleteDialogCancelBtn = $('.delete-dialog-ct .cancel-btn'),
+        $deleteBtn = $('.company .delete-btn');
+    $addLicenseType.on('click',function(){
+        $tbody.find('.new-item').remove();
+        var $newItem = $(
+                '<tr class="new-item">'+
+                        '<td>+</td>'+
+                        '<td><select name="year" id="year">'+
+                                '<option value="1">化工厂</option>'+
+                                '<option value="1">加油站</option>'+
+                            '</select></td>'+
+                        '<td><input type="text"></td>'+
+                '<td><select name="year" id="year">'+
+                        '<option value="1">0</option>'+
+                        '<option value="1">1</option>'+
+                        '<option value="1">2</option>'+
+                        '<option value="1">3</option>'+
+                        '<option value="1">4</option>'+
+                        '<option value="1">5</option>'+
+                    '</select>'+
+                    '<label for="year">年</label>&nbsp'+
+                    '<select name="month" id="month">'+
+                        '<option value="1">0</option>'+
+                        '<option value="1">1</option>'+
+                        '<option value="1">2</option>'+
+                        '<option value="1">3</option>'+
+                        '<option value="1">4</option>'+
+                        '<option value="1">5</option>'+
+                        '<option value="1">6</option>'+
+                        '<option value="1">7</option>'+
+                        '<option value="1">8</option>'+
+                        '<option value="1">9</option>'+
+                        '<option value="1">10</option>'+
+                        '<option value="1">11</option>'+
+                        '<option value="1">12</option>'+
+                    '</select>'+
+                    '<label for="month">个月</label></td>'+
+                        '<td><button class="cancel-btn">取消</button>'+
+                        '<button class="confirm-btn blue-btn">添加</button></td></tr>'
+        ),
+        $newItemCancel = $newItem.find('.cancel-btn'),
+        $newItemConfirm = $newItem.find('.confirm-btn');
+        $tbody.prepend($newItem);
+        $newItemCancel.on('click',function(){
+            $newItem.remove();
+        })
+        $newItemConfirm.on('click',function(){
+            $newItem.remove();
+        })
+        window.parent.adjustHeight();
+
+    })
+
+    $deleteBtn.on('click',function(){
+        $deleteDialog.show();
+    })
+    // $reviseBtn.on('click',function(){
+    //     // window.parent.jump('reviseCompany.html');
+    // })
+    $deleteDialogCancelBtn.on('click',function(){
+        $deleteDialog.hide();
+    })
+
+</script>
+</html>
